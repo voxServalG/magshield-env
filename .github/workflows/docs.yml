@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
       - name: Sync dependencies
-        run: uv sync --locked
+        run: uv sync --locked --all-extras
       - name: Compile English translations
         run: uv run sphinx-intl build --locale-dir site/locales
       - name: Build Chinese site

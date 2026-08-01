@@ -5,7 +5,7 @@
 ## 本地构建
 
 ```bash
-uv sync --locked
+uv sync --locked --all-extras
 uv run sphinx-build -b html site site/_build/html -W          # 中文
 uv run sphinx-intl build -d site/locales
 READTHEDOCS_LANGUAGE=en uv run sphinx-build -b html site site/_build/html-en -W -D language=en  # 英文
