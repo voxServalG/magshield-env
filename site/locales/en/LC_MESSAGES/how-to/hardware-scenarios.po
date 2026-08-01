@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../how-to/hardware-scenarios.md:1
+msgid "操作指南：声明硬件、外部场与位姿"
+msgstr "How-to: Declare hardware, external field, and pose"
+
+#: ../../how-to/hardware-scenarios.md:3
+msgid "硬件与场景把响应模型变成可执行的控制环境。所有数值都是规范 SI 单位，并且通道与点身份必须和物理源保持一致。"
+msgstr "Hardware and scenario turn a response model into an executable control environment. All values are canonical SI units, and channel and point identities must match the physics source."
+
+#: ../../how-to/hardware-scenarios.md:5
+msgid "硬件"
+msgstr "Hardware"
+
+#: ../../how-to/hardware-scenarios.md:7
+msgid "每个通道声明："
+msgstr "Declare, for every channel:"
+
+#: ../../how-to/hardware-scenarios.md:9
+msgid "`current_lower_a` / `current_upper_a`：电流边界（安培）。"
+msgstr "`current_lower_a` / `current_upper_a`: current bounds (amperes)."
+
+#: ../../how-to/hardware-scenarios.md:10
+msgid "`slew_rate_upper_a_per_s`：正向爬升率上限（安培每秒）。"
+msgstr "`slew_rate_upper_a_per_s`: positive slew-rate upper bound (amperes per second)."
+
+#: ../../how-to/hardware-scenarios.md:11
+msgid "`resistance_ohm`：电阻（欧姆）。"
+msgstr "`resistance_ohm`: resistance (ohms)."
+
+#: ../../how-to/hardware-scenarios.md:12
+msgid "`voltage_upper_v`：电压上限（伏特）。"
+msgstr "`voltage_upper_v`: voltage upper limit (volts)."
+
+#: ../../how-to/hardware-scenarios.md:14
+msgid "另外声明控制器步长 `timestep_seconds`。通道 ID 唯一，且必须按响应矩阵的通道列顺序出现。"
+msgstr "Also declare the controller timestep `timestep_seconds`. Channel IDs are unique and must appear in exactly the response-column order."
+
+#: ../../how-to/hardware-scenarios.md:16
+msgid "每个 step 里，电流边界、爬升率边界和电压推导的边界联合定义合法增量；非法动作的行为由 `constraint_mode` 显式选择（`project_and_report` 或 `terminate`），不存在静默裁剪。"
+msgstr "At each step, the current bounds, slew-rate bound, and voltage-derived bound jointly define the legal increment; the illegal-action behavior is explicitly selected by `constraint_mode` (`project_and_report` or `terminate`), and nothing is silently clipped."
+
+#: ../../how-to/hardware-scenarios.md:18
+msgid "静态外部场与位姿"
+msgstr "Static external field and pose"
+
+#: ../../how-to/hardware-scenarios.md:27
+msgid "静态场景可以带一个外部场文件；位姿可选，但一旦出现，平移 `translation_m` 和四元数 `quaternion_xyzw` 必须成对完整。四元数表达取向，不是欧拉角。"
+msgstr "A static scenario may carry one external-field file; pose is optional, but when present `translation_m` and `quaternion_xyzw` must be complete as a pair. A quaternion expresses orientation; it is not Euler angles."
+
+#: ../../how-to/hardware-scenarios.md:29
+msgid "固定响应包要求外部场分量框架等于响应框架。动态几何把每个位姿解释为从点框架到路径框架的变换，然后在目标框架里求响应和外场分量。"
+msgstr "Fixed-response packages require the external-field component frame to equal the response frame. Dynamic geometry interprets each pose as a transform from the point frame to the path frame, then evaluates the response and external-field components in the target frame."
+
+#: ../../how-to/hardware-scenarios.md:31
+msgid "轨迹场景"
+msgstr "Trajectory scenarios"
+
+#: ../../how-to/hardware-scenarios.md:42
+msgid "HDF5 轨迹绑定外部场帧与可选位姿数组，约束："
+msgstr "An HDF5 trajectory binds external-field frames and optional pose arrays, subject to:"
+
+#: ../../how-to/hardware-scenarios.md:44
+msgid "平移与四元数数据集要么都存在，要么都不存在。"
+msgstr "Translation and quaternion datasets exist together or not at all."
+
+#: ../../how-to/hardware-scenarios.md:45
+msgid "所有随时间变化的数组共享相同的首帧数。"
+msgstr "All time-varying arrays share the same leading frame count."
+
+#: ../../how-to/hardware-scenarios.md:46
+msgid "文件显式声明 `field_unit=T`、外场分量框架、位姿平移单位 `m` 和四元数顺序 `xyzw`；名字本身不能当作单位证据。"
+msgstr "The file explicitly declares `field_unit=T`, the external-field component frame, the pose translation unit `m`, and quaternion order `xyzw`; names alone are not accepted as unit evidence."
+
+#: ../../how-to/hardware-scenarios.md:47
+msgid "动态几何里每个运行时帧都需要位姿；重复的精确位姿可命中缓存。"
+msgstr "In dynamic geometry every runtime frame needs a pose; repeated exact poses may hit the cache."
+
+#: ../../how-to/hardware-scenarios.md:49
+msgid "奖励声明"
+msgstr "Reward declaration"
+
+#: ../../how-to/hardware-scenarios.md:51
+msgid "奖励的尺度和权重是构建时声明的一部分：场误差、功率、电流变化、约束，以及可选的额定电流偏差。没有事后再调参的隐藏默认值。"
+msgstr "Reward scales and weights are part of the build-time declaration: field error, power, current change, constraints, and an optional nominal-current deviation. There are no hidden defaults to tune afterwards."
+
+#: ../../how-to/hardware-scenarios.md:53
+msgid "各字段的精确含义见[参考：格式契约](../reference/format-contracts)和[概念：场误差指标](../concepts/field-error-metric)。"
+msgstr "Precise field meanings are in [Reference: format contracts](../reference/format-contracts) and [Concept: field-error metric](../concepts/field-error-metric)."

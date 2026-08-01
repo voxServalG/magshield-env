@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../tutorials/programmatic-build.md:1
+msgid "教程：用 build.yaml 与 Python API 构建"
+msgstr "Tutorial: Build with build.yaml and the Python API"
+
+#: ../../tutorials/programmatic-build.md:3
+msgid "TUI 适合交互式构建，脚本和 CI 则用一份严格的 YAML 构建定义加 Python API。仓库的 `examples/minimal-finite-element/build.yaml` 是完整的最小例子（两点、两通道）。"
+msgstr "The TUI suits interactive building; scripts and CI use one strict YAML build definition plus the Python API. `examples/minimal-finite-element/build.yaml` in the repository is a complete minimal example (two points, two channels)."
+
+#: ../../tutorials/programmatic-build.md:5
+msgid "构建定义长什么样"
+msgstr "What the build definition looks like"
+
+#: ../../tutorials/programmatic-build.md:61
+msgid "字段含义（单位、形状、顺序约束）见[格式契约](../reference/format-contracts)和[概念](../concepts/units-and-formats)；JSON Schema 投影是机器校验的权威。"
+msgstr "Field meanings (units, shapes, ordering constraints) are in [Reference: format contracts](../reference/format-contracts) and [Concepts](../concepts/units-and-formats); the JSON Schema projection is the authority for machine validation."
+
+#: ../../tutorials/programmatic-build.md:63
+msgid "加载并构建"
+msgstr "Load and build"
+
+#: ../../tutorials/programmatic-build.md:82
+msgid "`report` 是 `BuildReport`，包含输出目录、包身份、点数、通道数、响应形状与秩、响应内存字节数和物理模式（`fixed` 或 `dynamic_geometry`）。"
+msgstr "`report` is a `BuildReport` containing the output directory, package identity, point count, channel count, response shape and rank, response memory in bytes, and the physics mode (`fixed` or `dynamic_geometry`)."
+
+#: ../../tutorials/programmatic-build.md:84
+msgid "构建失败时"
+msgstr "When a build fails"
+
+#: ../../tutorials/programmatic-build.md:86
+msgid "异常是结构化的 `MagshieldEnvError`，携带 `type`、`subtype`、`message` 和可执行的 `hint`。按提示修复声明或源文件后重试；不要改一个不同的物理模型来碰运气。常见修复路径见[操作指南：排查](../how-to/troubleshooting)。"
+msgstr "The exception is a structured `MagshieldEnvError` carrying `type`, `subtype`, `message`, and an actionable `hint`. Fix the declaration or source file and retry; do not switch to a different physical model to get lucky. Common fixes: [How-to: troubleshooting](../how-to/troubleshooting)."
+
+#: ../../tutorials/programmatic-build.md:88
+msgid "导出后的双保险"
+msgstr "Double check after export"
+
+#: ../../tutorials/programmatic-build.md:97
+msgid "`validate_environment` 校验每个文件哈希、数组身份和跨文件契约。之后再用 `make_env` 加载并执行一次 step，见[教程：校验、导出并加载](../tutorials/validate-load)。"
+msgstr "`validate_environment` checks every file hash, array identity, and cross-file contract. Then load once with `make_env` and take one step; see [Tutorial: validate, export, and load](../tutorials/validate-load)."

@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../concepts/units-and-formats.md:1
+msgid "概念：单位、形状与规范格式"
+msgstr "Concept: Units, shapes, and canonical formats"
+
+#: ../../concepts/units-and-formats.md:3
+msgid "所有数值物理数组都是 float64，单位是固定的 SI 集合：长度米（`m`）、磁场特斯拉（`T`）、电流安培（`A`）、时间秒（`s`）、电阻欧姆（`ohm`）、电压伏特（`V`）；每安培响应是 `T/A`。导入的非 SI 数据必须在进入规范格式之前完成转换，转换过程和来源身份进入构建溯源。"
+msgstr "All numeric physics arrays are float64 with a fixed SI unit set: length in metres (`m`), magnetic field in tesla (`T`), current in amperes (`A`), time in seconds (`s`), resistance in ohms (`ohm`), voltage in volts (`V`), and response per ampere in `T/A`. Imported non-SI data must be converted before entering the canonical formats; the conversion and source identity go into build provenance."
+
+#: ../../concepts/units-and-formats.md:5
+msgid "形状也是契约："
+msgstr "Shape is also a contract:"
+
+#: ../../concepts/units-and-formats.md:7
+msgid "点集：`[N, 3]`，`N` 是点数量。"
+msgstr "Point sets: `[N, 3]`, where `N` is the number of points."
+
+#: ../../concepts/units-and-formats.md:8
+msgid "响应矩阵：`[N, 3, M]`，`M` 是通道数量；第二维是三个矢量分量。"
+msgstr "Response matrix: `[N, 3, M]`, where `M` is the channel count and the second axis holds the three vector components."
+
+#: ../../concepts/units-and-formats.md:9
+msgid "通道字段：`[N, 3]`。"
+msgstr "Channel fields: `[N, 3]`."
+
+#: ../../concepts/units-and-formats.md:11
+msgid "形状相同永远不等于语义相同：坐标框架、通道顺序、点顺序都是独立的身份维度。`manifest.json` 会把点顺序、通道顺序、坐标框架、数组形状和内容哈希全部绑定。"
+msgstr "Equal shapes never imply equal semantics: coordinate frame, channel order, and point order are independent identity dimensions. `manifest.json` binds point order, channel order, coordinate frame, array shapes, and content hashes."
+
+#: ../../concepts/units-and-formats.md:13
+msgid "交换格式（CSV、HDF5、VTK/VTP、YAML）的精确布局见[参考：格式契约](../reference/format-contracts)，JSON Schema 投影见[参考：JSON Schema](../reference/schemas)。"
+msgstr "Exact layouts of the exchange formats (CSV, HDF5, VTK/VTP, YAML) are in [Reference: format contracts](../reference/format-contracts), and the JSON Schema projections in [Reference: JSON Schema](../reference/schemas)."

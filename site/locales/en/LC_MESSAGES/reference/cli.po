@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Last-Translator: Vox Gu <2020308160237@cau.edu.cn>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../reference/cli.md:1
+msgid "参考：命令行入口"
+msgstr "Reference: Command-line entry points"
+
+#: ../../reference/cli.md:3
+msgid "`magshield-env` 提供三个面向用户的命令。**本站不复制任何 flag 或参数**：运行每个命令的 `--help` 即可获得最新的参数、默认值、可选值和示例，那是唯一真源。"
+msgstr "`magshield-env` provides three user-facing commands. **This site does not duplicate any flag or parameter**: run `--help` on each command for the current arguments, defaults, accepted values, and examples; that is the single source of truth."
+
+#: ../../reference/cli.md
+msgid "命令"
+msgstr "Command"
+
+#: ../../reference/cli.md
+msgid "作用"
+msgstr "Purpose"
+
+#: ../../reference/cli.md
+msgid "输出"
+msgstr "Output"
+
+#: ../../reference/cli.md
+msgid "`tui`"
+msgstr "`tui`"
+
+#: ../../reference/cli.md
+msgid "打开五步全屏环境构建向导"
+msgstr "Open the five-step full-screen environment builder"
+
+#: ../../reference/cli.md
+msgid "交互画面走 stderr，stdout 未使用"
+msgstr "Interactive rendering to stderr; stdout unused"
+
+#: ../../reference/cli.md
+msgid "`validate`"
+msgstr "`validate`"
+
+#: ../../reference/cli.md
+msgid "校验环境包的哈希、schema、数组与跨文件契约"
+msgstr "Validate package hashes, schemas, arrays, and cross-file contracts"
+
+#: ../../reference/cli.md
+msgid "stdout 一个 JSON 信封"
+msgstr "One JSON envelope on stdout"
+
+#: ../../reference/cli.md
+msgid "`inspect`"
+msgstr "`inspect`"
+
+#: ../../reference/cli.md
+msgid "读取包元数据与派生维度，不做修改"
+msgstr "Read package metadata and derived dimensions without mutation"
+
+#: ../../reference/cli.md:18
+msgid "输出契约的语义见[概念：命令输出契约](../concepts/json-output)，脚本消费示例见[操作指南](../how-to/use-json-output)。"
+msgstr "Output-contract semantics: [Concept: command output contract](../concepts/json-output); script examples: [How-to](../how-to/use-json-output)."

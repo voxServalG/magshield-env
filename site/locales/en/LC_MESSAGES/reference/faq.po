@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../reference/faq.md:1
+msgid "常见问题"
+msgstr "Frequently asked questions"
+
+#: ../../reference/faq.md:3
+msgid "**为什么拒绝非 SI 单位？**"
+msgstr "**Why are non-SI units rejected?**"
+
+#: ../../reference/faq.md:5
+msgid "v0.1 只消费规范 SI 源文件。把非 SI 导出通过确定性、经过评审的预处理步骤转换，保留原始文件和转换记录，再导入转换后的文件。改列名不是单位转换。"
+msgstr "v0.1 consumes canonical SI artifacts only. Convert non-SI exports through a deterministic, reviewed preprocessing step, keep the original files and conversion records, and import the converted artifacts. Renaming a column is not a unit conversion."
+
+#: ../../reference/faq.md:7
+msgid "**输出目录已经存在，能覆盖吗？**"
+msgstr "**Can I overwrite an existing output directory?**"
+
+#: ../../reference/faq.md:9
+msgid "不能。导出到新的空目录。便携包恰好包含六个文件，任何多余或改动的成员都会让校验失败。"
+msgstr "No. Export to a new empty directory. A portable package contains exactly six files, and any extra or modified member fails validation."
+
+#: ../../reference/faq.md:11
+msgid "**动态几何环境能省略导体几何吗？**"
+msgstr "**Can a dynamic-geometry environment omit conductor geometry?**"
+
+#: ../../reference/faq.md:13
+msgid "不能。动态包必须包含完整路径、贡献和框架；不存在固定矩阵回退或最近位姿插值。"
+msgstr "No. Dynamic packages must contain complete paths, contributions, and frames; there is no fixed-matrix fallback or nearest-pose interpolation."
+
+#: ../../reference/faq.md:15
+msgid "**这个项目会训练策略吗？**"
+msgstr "**Does this project train policies?**"
+
+#: ../../reference/faq.md:17
+msgid "不会。它只构建和加载 Gymnasium 环境；训练、评估和策略发布都在项目边界之外。"
+msgstr "No. It only builds and loads Gymnasium environments; training, evaluation, and policy publication are outside the project boundary."
+
+#: ../../reference/faq.md:19
+msgid "**错误输出怎么读？**"
+msgstr "**How do I read error output?**"
+
+#: ../../reference/faq.md:21
+msgid "命令在 stdout 输出一个 JSON 信封，失败时 `error` 里有 `type`、`subtype`、`message` 和 `hint`。先读 `ok` 字段，再按 `hint` 修复源头。"
+msgstr "Commands write one JSON envelope on stdout; on failure, `error` carries `type`, `subtype`, `message`, and `hint`. Read `ok` first, then fix the source as `hint` directs."
+
+#: ../../reference/faq.md:23
+msgid "**文档和 `--help` 不一致时以谁为准？**"
+msgstr "**When docs and `--help` disagree, which wins?**"
+
+#: ../../reference/faq.md:25
+msgid "以 `--help` 为准。本站故意不复制命令参数；如果发现本站引用了不存在的 flag，请提 issue 或 PR 修正。"
+msgstr "`--help` wins. This site intentionally does not duplicate command parameters; if you find a flag here that does not exist, file an issue or open a PR."
+
+#: ../../reference/faq.md:27
+msgid "**我想给文档提 PR，需要满足什么？**"
+msgstr "**What do I need to satisfy when contributing to the docs?**"
+
+#: ../../reference/faq.md:29
+msgid "中文是事实源，英文是翻译；命令细节进 `--help`，设计思想进 `docs/`，工作流进 `skills/`。CI 会以警告即失败、linkcheck 和示例可复现作为门禁。"
+msgstr "Chinese is the source of truth and English is the translation; command details belong in `--help`, design ideas in `docs/`, workflows in `skills/`. CI gates on warnings-as-errors, linkcheck, and reproducible examples."

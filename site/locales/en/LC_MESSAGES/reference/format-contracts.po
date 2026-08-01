@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../reference/format-contracts.md:1
+msgid "参考：格式契约"
+msgstr "Reference: Format contracts"
+
+#: ../../reference/format-contracts.md:3
+msgid "下面的内容直接来自仓库的 `docs/formats.md`，与代码同一处维护，不在本站重复定义："
+msgstr "The content below comes directly from the repository's `docs/formats.md` and is maintained in one place; this site does not redefine it:"
+
+#: ../../../docs/formats.md:2
+msgid "Format Contracts"
+msgstr "Format Contracts"
+
+#: ../../../docs/formats.md:4
+msgid "All numeric physics arrays are float64. Length is metres (`m`), magnetic field is tesla (`T`), current is amperes (`A`), time is seconds (`s`), resistance is ohms, and voltage is volts. Imported non-SI source data must be converted before it reaches these canonical formats; the conversion and source identity belong in the build provenance."
+msgstr "All numeric physics arrays are float64. Length is metres (`m`), magnetic field is tesla (`T`), current is amperes (`A`), time is seconds (`s`), resistance is ohms, and voltage is volts. Imported non-SI source data must be converted before it reaches these canonical formats; the conversion and source identity belong in the build provenance."
+
+#: ../../../docs/formats.md:10 ../../../docs/formats.md:17
+msgid "Coordinate frames bind both locations and vector components. A point frame says where coordinates live; a response, external-field, or observation-basis frame says which axes its three vector components use. Equal array shapes never imply equal frames. Version 0.1 accepts only canonical SI source artifacts: convert a non-SI export deterministically before import and retain the original source and conversion procedure outside the portable package for provenance."
+msgstr "Coordinate frames bind both locations and vector components. A point frame says where coordinates live; a response, external-field, or observation-basis frame says which axes its three vector components use. Equal array shapes never imply equal frames. Version 0.1 accepts only canonical SI source artifacts: convert a non-SI export deterministically before import and retain the original source and conversion procedure outside the portable package for provenance."
+
+#: ../../../docs/formats.md:24
+msgid "Point sets"
+msgstr "Point sets"
+
+#: ../../../docs/formats.md:26 ../../../docs/formats.md:46 ../../../docs/formats.md:66
+msgid "CSV has this exact header and order:"
+msgstr "CSV has this exact header and order:"
+
+#: ../../../docs/formats.md:32
+msgid "`point_id` is non-empty and unique. Coordinates and weights are finite; weights are positive. CSV requires the coordinate frame in the build definition."
+msgstr "`point_id` is non-empty and unique. Coordinates and weights are finite; weights are positive. CSV requires the coordinate frame in the build definition."
+
+#: ../../../docs/formats.md:35
+msgid "HDF5 point sets have root datasets `point_ids` (UTF-8, `[N]`), `points_m` (`[N,3]`), and `weights` (`[N]`), plus root attributes `coordinate_frame=<non-empty text>` and `length_unit=m`."
+msgstr "HDF5 point sets have root datasets `point_ids` (UTF-8, `[N]`), `points_m` (`[N,3]`), and `weights` (`[N]`), plus root attributes `coordinate_frame=<non-empty text>` and `length_unit=m`."
+
+#: ../../../docs/formats.md:39
+msgid "VTK-family point sets store coordinates as mesh points and point data `weight`. Identity is either scalar `point_id`, or the lossless pair `point_id_utf8` (`[N,W]` uint8) and `point_id_length` (`[N]`). The coordinate frame is declared in the build definition."
+msgstr "VTK-family point sets store coordinates as mesh points and point data `weight`. Identity is either scalar `point_id`, or the lossless pair `point_id_utf8` (`[N,W]` uint8) and `point_id_length` (`[N]`). The coordinate frame is declared in the build definition."
+
+#: ../../../docs/formats.md:44
+msgid "Per-channel fields"
+msgstr "Per-channel fields"
+
+#: ../../../docs/formats.md:52
+msgid "The import declaration supplies channel identity and coordinate frame. HDF5 fields have datasets `point_ids` (`[N]`) and `field_T_per_A` (`[N,3]`) plus root attributes `channel_id`, `coordinate_frame`, and `field_unit=T/A`. VTK-family fields store `[N,3]` point data `field_T_per_A`, together with point identity; channel and frame are declared at import."
+msgstr "The import declaration supplies channel identity and coordinate frame. HDF5 fields have datasets `point_ids` (`[N]`) and `field_T_per_A` (`[N,3]`) plus root attributes `channel_id`, `coordinate_frame`, and `field_unit=T/A`. VTK-family fields store `[N,3]` point data `field_T_per_A`, together with point identity; channel and frame are declared at import."
+
+#: ../../../docs/formats.md:58
+msgid "Fixed response matrix"
+msgstr "Fixed response matrix"
+
+#: ../../../docs/formats.md:60
+msgid "Canonical HDF5 uses datasets `point_ids` (`[N]`), `channel_ids` (`[M]`), and `response_T_per_A` (`[N,3,M]`), with root attributes `coordinate_frame` and `field_unit=T/A`. Dataset order is semantic and is bound by the manifest."
+msgstr "Canonical HDF5 uses datasets `point_ids` (`[N]`), `channel_ids` (`[M]`), and `response_T_per_A` (`[N,3,M]`), with root attributes `coordinate_frame` and `field_unit=T/A`. Dataset order is semantic and is bound by the manifest."
+
+#: ../../../docs/formats.md:64
+msgid "Conductor paths"
+msgstr "Conductor paths"
+
+#: ../../../docs/formats.md:72
+msgid "VTP is XML `PolyData` with one `Piece`, inline ASCII `Points`, and `Lines` arrays named `connectivity` and `offsets`. `CellData` contains one value per line for `channel_id`, `path_id`, and `closed`. Each `(channel_id,path_id)` is unique. For VTP, closed accepts `1` or `true`, open accepts `0` or `false`."
+msgstr "VTP is XML `PolyData` with one `Piece`, inline ASCII `Points`, and `Lines` arrays named `connectivity` and `offsets`. `CellData` contains one value per line for `channel_id`, `path_id`, and `closed`. Each `(channel_id,path_id)` is unique. For VTP, closed accepts `1` or `true`, open accepts `0` or `false`."
+
+#: ../../../docs/formats.md:77
+msgid "Geometry-channel YAML has `schema_name: magshield_env.geometry_channels`, `schema_version: 1`, ordered `channel_ids`, and non-empty `contributions`. Every contribution declares `rotation`, `translation_m`, `allow_improper`, and `gain`."
+msgstr "Geometry-channel YAML has `schema_name: magshield_env.geometry_channels`, `schema_version: 1`, ordered `channel_ids`, and non-empty `contributions`. Every contribution declares `rotation`, `translation_m`, `allow_improper`, and `gain`."
+
+#: ../../../docs/formats.md:81
+msgid "Build definition and JSON Schema"
+msgstr "Build definition and JSON Schema"
+
+#: ../../../docs/formats.md:83
+msgid "Build YAML has `schema_name: magshield_env.build_config` and `schema_version: 1`. The authoritative validation model is `magshield_env.domain.config.BuildConfig`; `schemas/build-config.schema.json` is its deterministic, committed JSON Schema projection. Contract tests regenerate the projection and require byte-equivalent JSON content after normalization. Any model change must update the schema in the same change."
+msgstr "Build YAML has `schema_name: magshield_env.build_config` and `schema_version: 1`. The authoritative validation model is `magshield_env.domain.config.BuildConfig`; `schemas/build-config.schema.json` is its deterministic, committed JSON Schema projection. Contract tests regenerate the projection and require byte-equivalent JSON content after normalization. Any model change must update the schema in the same change."
+
+#: ../../../docs/formats.md:90
+msgid "Exported environment package"
+msgstr "Exported environment package"
+
+#: ../../../docs/formats.md:92
+msgid "An exported directory contains exactly the required portable contract files:"
+msgstr "An exported directory contains exactly the required portable contract files:"
+
+#: ../../../docs/formats.md:103
+msgid "`environment.yaml` names immutable package members and the Gymnasium interface. `physics.h5` contains point identity and either response data or conductor geometry. `hardware.yaml` freezes ordered channel constraints. `scenario.h5` contains exogenous field and pose frames. `manifest.json` records schema versions, source identities, coordinate frame, array shapes, channel order, and SHA-256 for every member. A missing, extra-contract, reordered, or changed member fails validation."
+msgstr "`environment.yaml` names immutable package members and the Gymnasium interface. `physics.h5` contains point identity and either response data or conductor geometry. `hardware.yaml` freezes ordered channel constraints. `scenario.h5` contains exogenous field and pose frames. `manifest.json` records schema versions, source identities, coordinate frame, array shapes, channel order, and SHA-256 for every member. A missing, extra-contract, reordered, or changed member fails validation."
+
+#: ../../../docs/formats.md:111 ../../../docs/formats.md:138
+msgid "`physics.h5` always declares `point_coordinate_frame`, `response_coordinate_frame`, `length_unit=m`, and `field_response_unit=T/A`. An `observation_basis` dataset additionally declares `component_frame`. Dynamic geometry declares `path_frame`, `pose_source_frame`, and `pose_target_frame`; the source must equal the point frame and the target must equal the path frame."
+msgstr "`physics.h5` always declares `point_coordinate_frame`, `response_coordinate_frame`, `length_unit=m`, and `field_response_unit=T/A`. An `observation_basis` dataset additionally declares `component_frame`. Dynamic geometry declares `path_frame`, `pose_source_frame`, and `pose_target_frame`; the source must equal the point frame and the target must equal the path frame."
+
+#: ../../../docs/formats.md:117 ../../../docs/formats.md:144
+msgid "`scenario.h5` declares `field_unit=T`, `external_field_component_frame`, and `pose_layout=translation_m,quaternion_xyzw`. Imported trajectory pose datasets declare `pose_length_unit=m` and `pose_quaternion_order=xyzw`. External-field components, response components, and optional basis components must use the same frame before they may be added or projected."
+msgstr "`scenario.h5` declares `field_unit=T`, `external_field_component_frame`, and `pose_layout=translation_m,quaternion_xyzw`. Imported trajectory pose datasets declare `pose_length_unit=m` and `pose_quaternion_order=xyzw`. External-field components, response components, and optional basis components must use the same frame before they may be added or projected."
+
+#: ../../../docs/formats.md:124 ../../../docs/formats.md:151
+msgid "Field-error metric"
+msgstr "Field-error metric"
+
+#: ../../../docs/formats.md:126 ../../../docs/formats.md:153
+msgid "For residual vectors `r_i` and positive sampling weights `w_i`, the environment uses one weighted vector root-mean-square value:"
+msgstr "For residual vectors `r_i` and positive sampling weights `w_i`, the environment uses one weighted vector root-mean-square value:"
+
+#: ../../../docs/formats.md:133 ../../../docs/formats.md:160
+msgid "Scaling all weights by the same positive constant leaves the metric unchanged. This is a vector-magnitude RMS over points, not an RMS over the `3N` scalar components. The reward applies its declared threshold, scale, and weight to this value."
+msgstr "Scaling all weights by the same positive constant leaves the metric unchanged. This is a vector-magnitude RMS over points, not an RMS over the `3N` scalar components. The reward applies its declared threshold, scale, and weight to this value."
+
+#: ../../../docs/formats.md:165
+msgid "CLI streams"
+msgstr "CLI streams"
+
+#: ../../../docs/formats.md:167
+msgid "`validate` and `inspect` write exactly one JSON envelope with schema `magshield-env.cli.v1` to stdout and progress to stderr. Success has `ok: true`, `command`, and `result`. Failure has `ok: false`, `command`, and a structured `error` containing `type`, `subtype`, `message`, and `hint`. `tui` writes its interactive rendering to stderr and leaves stdout unused. Standard `--help` is plain text and is the sole source of arguments, defaults, flags, and examples."
+msgstr "`validate` and `inspect` write exactly one JSON envelope with schema `magshield-env.cli.v1` to stdout and progress to stderr. Success has `ok: true`, `command`, and `result`. Failure has `ok: false`, `command`, and a structured `error` containing `type`, `subtype`, `message`, and `hint`. `tui` writes its interactive rendering to stderr and leaves stdout unused. Standard `--help` is plain text and is the sole source of arguments, defaults, flags, and examples."
+
+#: ../../reference/format-contracts.md:8
+msgid "配套的机器可读投影见[参考：JSON Schema](schemas)。"
+msgstr "Machine-readable projections: [Reference: JSON Schema](schemas)."

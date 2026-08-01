@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../concepts/field-error-metric.md:1
+msgid "概念：场误差指标"
+msgstr "Concept: Field-error metric"
+
+#: ../../concepts/field-error-metric.md:3
+msgid "环境用**一个**加权矢量均方根值衡量残差场。对残差矢量 `r_i` 和正权重 `w_i`："
+msgstr "The environment measures the residual field with **one** weighted vector root-mean-square value. For residual vectors `r_i` and positive weights `w_i`:"
+
+#: ../../concepts/field-error-metric.md:9
+msgid "几点必须理解："
+msgstr "Points to understand:"
+
+#: ../../concepts/field-error-metric.md:11
+msgid "这是对点做矢量模长的 RMS，不是对 `3N` 个标量分量做 RMS。"
+msgstr "This is a vector-magnitude RMS over points, not an RMS over the `3N` scalar components."
+
+#: ../../concepts/field-error-metric.md:12
+msgid "所有权重乘以同一个正常数，指标不变；相对权重才有意义。"
+msgstr "Scaling all weights by the same positive constant leaves the metric unchanged; relative weights are what matter."
+
+#: ../../concepts/field-error-metric.md:13
+msgid "奖励里的 `field_threshold_t`、`field_scale_t` 和 `field_weight` 都作用在这个单一指标上。"
+msgstr "`field_threshold_t`, `field_scale_t`, and `field_weight` in the reward all act on this single metric."
+
+#: ../../concepts/field-error-metric.md:14
+msgid "权重来自点集；均匀评估时所有权重取 1。"
+msgstr "Weights come from the point set; use 1 everywhere for uniform evaluation."
+
+#: ../../concepts/field-error-metric.md:16
+msgid "指标定义在[格式契约](../reference/format-contracts)里与打包布局一起冻结，改变它需要新的 ADR 和契约测试。"
+msgstr "The metric is frozen in [Reference: format contracts](../reference/format-contracts) together with the package layout; changing it requires a new ADR and contract tests."

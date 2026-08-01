@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../getting-started/index.md:1
+msgid "快速开始"
+msgstr "Getting Started"
+
+#: ../../getting-started/index.md:3
+msgid "安装"
+msgstr "Installation"
+
+#: ../../getting-started/index.md:5
+msgid "项目要求 Python 3.12 或更高（3.12 至 3.14），推荐用 `uv` 管理："
+msgstr "The project requires Python 3.12 or newer (3.12 to 3.14) and recommends managing dependencies with `uv`:"
+
+#: ../../getting-started/index.md:13
+msgid "也可以先构建 wheel 再作为命令行工具安装："
+msgstr "Alternatively, build a wheel and install it as a command-line tool:"
+
+#: ../../getting-started/index.md:20
+msgid "任何情况下，先运行 `magshield-env --help` 查看当前可用的命令、参数和示例；它是最新的命令细节来源。"
+msgstr "In all cases, run `magshield-env --help` first to see the current commands, arguments, and examples; it is the most up-to-date source of command details."
+
+#: ../../getting-started/index.md:22
+msgid "第一次使用：TUI 五步向导"
+msgstr "First use: the five-step TUI wizard"
+
+#: ../../getting-started/index.md:28
+msgid "全屏向导按五个步骤收集定义，最后给出校验报告，只有没有任何阻塞问题时才允许导出："
+msgstr "The full-screen wizard collects the definition in five steps and shows a validation report before export; export is allowed only when there are no blocking issues:"
+
+#: ../../getting-started/index.md:30
+msgid "**采样区域**：生成笛卡尔盒、圆柱、球体或球面点集，或导入测量点集。"
+msgstr "**Sampling region**: generate a Cartesian box, cylinder, sphere, or sphere-surface point set, or import a measured point set."
+
+#: ../../getting-started/index.md:31
+msgid "**正向模型**：三选一——固定响应矩阵、有限元逐通道场、或导体几何（动态 Biot-Savart）。"
+msgstr "**Forward model**: choose exactly one of a fixed response matrix, per-channel finite-element fields, or conductor geometry (dynamic Biot-Savart)."
+
+#: ../../getting-started/index.md:32
+msgid "**硬件**：声明每个通道的电流边界、爬升率、电阻和电压限制，以及控制器步长。"
+msgstr "**Hardware**: declare per-channel current bounds, slew rate, resistance, voltage limits, and the controller timestep."
+
+#: ../../getting-started/index.md:33
+msgid "**场景**：声明静态外部场与位姿，或绑定 HDF5 轨迹。"
+msgstr "**Scenario**: declare a static external field and pose, or bind an HDF5 trajectory."
+
+#: ../../getting-started/index.md:34
+msgid "**环境行为**：选择观测模式、是否包含位姿、非法动作行为与奖励参数。"
+msgstr "**Environment behavior**: choose the observation mode, whether to include pose, the illegal-action behavior, and reward parameters."
+
+#: ../../getting-started/index.md:36
+msgid "三分钟跑通一个例子"
+msgstr "Run a complete example in three minutes"
+
+#: ../../getting-started/index.md:38
+msgid "仓库自带一个完整的最小构建定义 `examples/minimal-finite-element/build.yaml`（两点、两通道的有限元 CSV 场）。复制它到一个新目录，把 `output_dir` 改成新路径，然后："
+msgstr "The repository ships a complete minimal build definition at `examples/minimal-finite-element/build.yaml` (two points, two finite-element CSV channels). Copy it to a new directory, change `output_dir`, then:"
+
+#: ../../getting-started/index.md:45
+msgid "程序化构建和加载见[教程：用 build.yaml 与 Python API 构建](../tutorials/programmatic-build)。"
+msgstr "For programmatic construction and loading, see [Tutorial: building with build.yaml and the Python API](../tutorials/programmatic-build)."
+
+#: ../../getting-started/index.md:47
+msgid "加载环境包"
+msgstr "Load an environment package"
+
+#: ../../getting-started/index.md:49
+msgid "导出的目录不依赖任何原始源文件，直接通过 Gymnasium 接口加载："
+msgstr "The exported directory does not depend on any original source files; load it directly through the Gymnasium interface:"
+
+#: ../../getting-started/index.md:63
+msgid "下一步"
+msgstr "Next steps"
+
+#: ../../getting-started/index.md:65
+msgid "想跟着向导走完整流程：[用 TUI 构建第一个环境](../tutorials/tui-first-env)。"
+msgstr "Follow the full wizard flow: [Tutorial: build your first environment with the TUI](../tutorials/tui-first-env)."
+
+#: ../../getting-started/index.md:66
+msgid "想理解每个概念的物理含义：[概念](../concepts/units-and-formats)。"
+msgstr "Understand the physical meaning of each concept: [Concepts](../concepts/units-and-formats)."
+
+#: ../../getting-started/index.md:67
+msgid "遇到校验失败：[操作指南：排查](../how-to/troubleshooting)。"
+msgstr "Facing a failed validation: [How-to: troubleshooting](../how-to/troubleshooting)."

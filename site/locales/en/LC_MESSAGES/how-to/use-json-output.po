@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../how-to/use-json-output.md:1
+msgid "操作指南：在脚本和 CI 中消费命令输出"
+msgstr "How-to: Consume command output in scripts and CI"
+
+#: ../../how-to/use-json-output.md:3
+msgid "`validate` 和 `inspect` 是脚本友好的：stdout 只输出一个 JSON envelope，进度和诊断走 stderr。不要解析帮助文本，也不要把错误信封当成功。"
+msgstr "`validate` and `inspect` are script-friendly: stdout carries exactly one JSON envelope while progress and diagnostics go to stderr. Do not parse help text, and never treat an error envelope as success."
+
+#: ../../how-to/use-json-output.md:5
+msgid "成功信封"
+msgstr "Success envelope"
+
+#: ../../how-to/use-json-output.md:23
+msgid "字段名以实际输出为准；先读 `ok`，不要靠文本猜测。"
+msgstr "Field names follow the actual output; read `ok` first and never guess from text."
+
+#: ../../how-to/use-json-output.md:25
+msgid "失败信封"
+msgstr "Error envelope"
+
+#: ../../how-to/use-json-output.md:40
+msgid "`type`、`subtype`、`message`、`hint` 都是结构化字段；`hint` 是可执行的下一步。修复源头后重试，不要绕过校验。"
+msgstr "`type`, `subtype`, `message`, and `hint` are structured fields; `hint` is an actionable next step. Fix the source and retry; do not bypass validation."
+
+#: ../../how-to/use-json-output.md:42
+msgid "在 CI 里用"
+msgstr "Using it in CI"
+
+#: ../../how-to/use-json-output.md:49
+msgid "也可以用 `--pretty` 让终端阅读更舒服，但机器解析请用默认的紧凑 JSON。各命令的参数以 `--help` 为准。"
+msgstr "You may use `--pretty` for comfortable terminal reading, but machine parsing should use the default compact JSON. Each command's parameters follow its `--help`."
+
+#: ../../how-to/use-json-output.md:51
+msgid "例外"
+msgstr "Exceptions"
+
+#: ../../how-to/use-json-output.md:53
+msgid "`--help` 和 `--version` 输出纯文本，不受 JSON 信封约束；交互式 TUI 的画面写 stderr，stdout 保持未使用。"
+msgstr "`--help` and `--version` output plain text and are exempt from the JSON envelope; the interactive TUI renders to stderr and leaves stdout unused."

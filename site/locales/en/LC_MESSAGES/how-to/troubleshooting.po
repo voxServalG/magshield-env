@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../how-to/troubleshooting.md:1
+msgid "操作指南：排查被拒绝的构建或包"
+msgstr "How-to: Troubleshoot a rejected build or package"
+
+#: ../../how-to/troubleshooting.md:3
+msgid "每一次拒绝都指向一个被违反的源文件或包契约。修好那个契约再校验；不要为了得到一个包而放宽容差、重排数据或切换物理模式。"
+msgstr "Every rejection points to a violated source-file or package contract. Repair that contract and validate again; do not loosen tolerances, reorder data, or switch physics modes just to obtain a package."
+
+#: ../../how-to/troubleshooting.md:5
+msgid "框架不匹配"
+msgstr "Frame mismatch"
+
+#: ../../how-to/troubleshooting.md:7
+msgid "点坐标、响应分量、外部场分量和可选的基分量要分开检查。框架字符串是精确身份；动态几何要求位姿源等于点框架、位姿目标等于路径框架。形状相同不代表框架相同，旋转会同时改变点位置和矢量分量的含义。"
+msgstr "Check point coordinates, response components, external-field components, and optional basis components separately. Frame strings are exact identities; dynamic geometry requires the pose source to equal the point frame and the pose target to equal the path frame. Equal shapes do not imply equal frames; rotation changes both point locations and the meaning of vector components."
+
+#: ../../how-to/troubleshooting.md:9
+msgid "点或通道顺序不匹配"
+msgstr "Point or channel order mismatch"
+
+#: ../../how-to/troubleshooting.md:11
+msgid "逐行比较标识符。在权威点集上重新生成场导出；改过采样网格后，所有依赖的场文件必须重新生成。不要单独排序某一个文件。硬件通道必须严格按响应列顺序出现。"
+msgstr "Compare identifiers row by row. Regenerate field exports on the authoritative point set; after changing the sampling grid, every dependent field file must be regenerated. Never sort a single file on its own. Hardware channels must appear in exactly the response-column order."
+
+#: ../../how-to/troubleshooting.md:13
+msgid "单位被拒绝"
+msgstr "Units rejected"
+
+#: ../../how-to/troubleshooting.md:15
+msgid "v0.1 只消费规范 SI 源文件。把非 SI 导出通过确定性、经过评审的预处理步骤转换，保留原始文件和转换记录，再导入转换后的文件。改列名或属性名不是单位转换。"
+msgstr "v0.1 consumes canonical SI artifacts only. Convert non-SI exports through a deterministic, reviewed preprocessing step, keep the original files and the conversion record, and import the converted artifacts. Renaming a column or attribute is not a unit conversion."
+
+#: ../../how-to/troubleshooting.md:17
+msgid "输出目录已存在或被改动"
+msgstr "Output directory exists or was modified"
+
+#: ../../how-to/troubleshooting.md:19
+msgid "导出到新目录。便携包恰好包含六个文件；多余注释、被修改的字节或编辑过的 manifest 元数据都会让校验失败。分析文件放在包旁边，而不是包里面。"
+msgstr "Export to a new directory. A portable package contains exactly six files; extra notes, modified bytes, or edited manifest metadata fail validation. Keep analysis beside the package, not inside it."
+
+#: ../../how-to/troubleshooting.md:21
+msgid "动态响应不匹配"
+msgstr "Dynamic response mismatch"
+
+#: ../../how-to/troubleshooting.md:23
+msgid "校验器会用打包的路径、贡献、点集和第一个位姿重建参考响应；不匹配意味着这些成员描述的不是同一个物理模型。从一组一致的源重新构建；没有固定矩阵回退。"
+msgstr "The validator rebuilds the reference response from the packaged paths, contributions, point set, and first pose; a mismatch means these members do not describe the same physical model. Rebuild from one consistent set of sources; there is no fixed-matrix fallback."
+
+#: ../../how-to/troubleshooting.md:25
+msgid "一般原则"
+msgstr "General principles"
+
+#: ../../how-to/troubleshooting.md:27
+msgid "先读错误信封里的 `hint`，它指向具体修复路径。"
+msgstr "Read the `hint` in the error envelope first; it points to the concrete fix."
+
+#: ../../how-to/troubleshooting.md:28
+msgid "每次只修一个契约，然后重新校验，避免同时引入新问题。"
+msgstr "Fix one contract at a time, then revalidate, to avoid introducing new problems."
+
+#: ../../how-to/troubleshooting.md:29
+msgid "如果你发现自己想“绕过”某个检查，几乎总是说明源文件或声明本身就错了。"
+msgstr "If you catch yourself trying to 'bypass' a check, the source file or declaration is almost certainly wrong."

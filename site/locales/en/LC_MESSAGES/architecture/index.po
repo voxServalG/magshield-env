@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:44+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../architecture/index.md:1
+msgid "架构"
+msgstr "Architecture"
+
+#: ../../architecture/index.md:3
+msgid "下面的内容直接来自仓库的 `docs/architecture.md`，与代码同一处维护："
+msgstr "The content below comes directly from the repository's `docs/architecture.md` and is maintained in one place:"
+
+#: ../../../docs/architecture.md:2
+msgid "Architecture"
+msgstr "Architecture"
+
+#: ../../../docs/architecture.md:4
+msgid "Boundary"
+msgstr "Boundary"
+
+#: ../../../docs/architecture.md:6
+msgid "`magshield-env` converts explicit physical inputs into a validated, self-contained Gymnasium environment package. It does not design coils, invoke finite-element software, train policies, or know any experiment-specific directory layout."
+msgstr "`magshield-env` converts explicit physical inputs into a validated, self-contained Gymnasium environment package. It does not design coils, invoke finite-element software, train policies, or know any experiment-specific directory layout."
+
+#: ../../../docs/architecture.md:11
+msgid "Components and dependency direction"
+msgstr "Components and dependency direction"
+
+#: ../../../docs/architecture.md:19
+msgid "The domain layer has no dependency on terminal or Gymnasium code. Physics code accepts SI arrays and returns SI arrays. The Gymnasium layer consumes a plant interface and never reads source export formats. The TUI only gathers values and calls the builder API."
+msgstr "The domain layer has no dependency on terminal or Gymnasium code. Physics code accepts SI arrays and returns SI arrays. The Gymnasium layer consumes a plant interface and never reads source export formats. The TUI only gathers values and calls the builder API."
+
+#: ../../../docs/architecture.md:24
+msgid "Core invariants"
+msgstr "Core invariants"
+
+#: ../../../docs/architecture.md:26
+msgid "Points are shaped `[N, 3]` and response matrices `[N, 3, M]` in `float64`."
+msgstr "Points are shaped `[N, 3]` and response matrices `[N, 3, M]` in `float64`."
+
+#: ../../../docs/architecture.md:27
+msgid "Coordinates are metres, field is tesla, current is ampere, time is seconds, resistance is ohm, and voltage is volt unless an importer declares and records an explicit conversion."
+msgstr "Coordinates are metres, field is tesla, current is ampere, time is seconds, resistance is ohm, and voltage is volt unless an importer declares and records an explicit conversion."
+
+#: ../../../docs/architecture.md:30
+msgid "Point order, channel order, coordinate frame, array shape, and content hashes are bound in `manifest.json`."
+msgstr "Point order, channel order, coordinate frame, array shape, and content hashes are bound in `manifest.json`."
+
+#: ../../../docs/architecture.md:32
+msgid "Finite-element channel files must describe the same points. Reordering is only allowed through an explicit, unique point identity or an explicit coordinate tolerance recorded in the build configuration."
+msgstr "Finite-element channel files must describe the same points. Reordering is only allowed through an explicit, unique point identity or an explicit coordinate tolerance recorded in the build configuration."
+
+#: ../../../docs/architecture.md:35
+msgid "Dynamic geometry keeps conductors fixed in their declared frame, transforms body-frame points with the declared pose, and recomputes the analytic segment field. It never substitutes a fixed matrix."
+msgstr "Dynamic geometry keeps conductors fixed in their declared frame, transforms body-frame points with the declared pose, and recomputes the analytic segment field. It never substitutes a fixed matrix."
+
+#: ../../../docs/architecture.md:38
+msgid "Hardware projection is observable through `info`; no illegal action is silently clipped."
+msgstr "Hardware projection is observable through `info`; no illegal action is silently clipped."
+
+#: ../../../docs/architecture.md:40
+msgid "Export succeeds atomically only after every contract has passed."
+msgstr "Export succeeds atomically only after every contract has passed."
+
+#: ../../../docs/architecture.md:42
+msgid "Data flow"
+msgstr "Data flow"
+
+#: ../../../docs/architecture.md:44
+msgid "The builder resolves YAML input, creates or imports points, constructs either a fixed response or conductor geometry, validates hardware and scenario data, and writes canonical HDF5/YAML files plus their manifest. `make_env` reads only this package. At each `step`, the plant returns a response matrix for the active pose, the hardware model maps normalized current deltas into the legal interval, and the environment returns residual field, reward, termination state, and explicit constraint evidence."
+msgstr "The builder resolves YAML input, creates or imports points, constructs either a fixed response or conductor geometry, validates hardware and scenario data, and writes canonical HDF5/YAML files plus their manifest. `make_env` reads only this package. At each `step`, the plant returns a response matrix for the active pose, the hardware model maps normalized current deltas into the legal interval, and the environment returns residual field, reward, termination state, and explicit constraint evidence."
+
+#: ../../../docs/architecture.md:52
+msgid "Decisions"
+msgstr "Decisions"
+
+#: ../../../docs/architecture.md:54
+msgid "[0001: Canonical scientific exchange formats](decisions/0001-canonical-formats.md)"
+msgstr "[0001: Canonical scientific exchange formats](decisions/0001-canonical-formats.md)"
+
+#: ../../../docs/architecture.md:55
+msgid "[0002: Gymnasium public environment contract](decisions/0002-gymnasium-contract.md)"
+msgstr "[0002: Gymnasium public environment contract](decisions/0002-gymnasium-contract.md)"
+
+#: ../../../docs/architecture.md:56
+msgid "[0003: Runtime geometry response](decisions/0003-runtime-geometry.md)"
+msgstr "[0003: Runtime geometry response](decisions/0003-runtime-geometry.md)"
+
+#: ../../../docs/architecture.md:57
+msgid "[0004: Textual as the interactive front end](decisions/0004-textual-tui.md)"
+msgstr "[0004: Textual as the interactive front end](decisions/0004-textual-tui.md)"
+
+#: ../../../docs/architecture.md:59
+msgid "Operator documentation"
+msgstr "Operator documentation"
+
+#: ../../../docs/architecture.md:61
+msgid "[Environment input guide](user-guide/index.md)"
+msgstr "[Environment input guide](user-guide/index.md)"
+
+#: ../../../docs/architecture.md:62
+msgid "[Canonical format contracts](formats.md)"
+msgstr "[Canonical format contracts](formats.md)"
+
+#: ../../../docs/architecture.md:63
+msgid "[Builder skill](../skills/magshield-env-builder/SKILL.md)"
+msgstr "[Builder skill](../skills/magshield-env-builder/SKILL.md)"
+
+#: ../../architecture/index.md:9
+msgid "设计决策记录"
+msgstr "Architecture decision records"
+
+#: ../../../docs/decisions/0001-canonical-formats.md:2
+msgid "0001: Canonical scientific exchange formats"
+msgstr "0001: Canonical scientific exchange formats"
+
+#: ../../../docs/decisions/0001-canonical-formats.md:4 ../../../docs/decisions/0002-gymnasium-contract.md:4 ../../../docs/decisions/0003-runtime-geometry.md:4 ../../../docs/decisions/0004-textual-tui.md:4
+msgid "**Status**: accepted"
+msgstr "**Status**: accepted"
+
+#: ../../../docs/decisions/0001-canonical-formats.md:5 ../../../docs/decisions/0002-gymnasium-contract.md:5 ../../../docs/decisions/0003-runtime-geometry.md:5 ../../../docs/decisions/0004-textual-tui.md:5
+msgid "**Date**: 2026-08-01"
+msgstr "**Date**: 2026-08-01"
+
+#: ../../../docs/decisions/0001-canonical-formats.md:6
+msgid "**Context**: Users need files readable from Python, MATLAB, finite-element exports, and common visualization tools without binding the environment to one solver."
+msgstr "**Context**: Users need files readable from Python, MATLAB, finite-element exports, and common visualization tools without binding the environment to one solver."
+
+#: ../../../docs/decisions/0001-canonical-formats.md:9
+msgid "**Decision**: In the need for cross-language scientific exchange, facing large dense arrays and geometric paths, we choose YAML/JSON Schema, HDF5, CSV, and VTK/VTP instead of project-private NumPy files, gaining explicit metadata and interoperability while accepting additional import dependencies."
+msgstr "**Decision**: In the need for cross-language scientific exchange, facing large dense arrays and geometric paths, we choose YAML/JSON Schema, HDF5, CSV, and VTK/VTP instead of project-private NumPy files, gaining explicit metadata and interoperability while accepting additional import dependencies."
+
+#: ../../../docs/decisions/0001-canonical-formats.md:13
+msgid "**Consequences**: Canonical bundles remain portable; importers must perform strict shape, unit, and identity validation."
+msgstr "**Consequences**: Canonical bundles remain portable; importers must perform strict shape, unit, and identity validation."
+
+#: ../../../docs/decisions/0001-canonical-formats.md:15
+msgid "**Alternatives Considered**: NumPy-only artifacts were rejected because they do not provide a sufficient cross-language metadata contract. Parquet was deferred because it does not improve the v1 scientific array boundary."
+msgstr "**Alternatives Considered**: NumPy-only artifacts were rejected because they do not provide a sufficient cross-language metadata contract. Parquet was deferred because it does not improve the v1 scientific array boundary."
+
+#: ../../../docs/decisions/0002-gymnasium-contract.md:2
+msgid "0002: Gymnasium public environment contract"
+msgstr "0002: Gymnasium public environment contract"
+
+#: ../../../docs/decisions/0002-gymnasium-contract.md:6
+msgid "**Context**: The exported result must be consumable by mainstream reinforcement-learning libraries without embedding training code."
+msgstr "**Context**: The exported result must be consumable by mainstream reinforcement-learning libraries without embedding training code."
+
+#: ../../../docs/decisions/0002-gymnasium-contract.md:8
+msgid "**Decision**: In the need for a standard single-agent interface, facing the cost of maintaining a private protocol, we choose Gymnasium `reset/step` over a custom environment API, gaining ecosystem compatibility while accepting Gymnasium as a runtime dependency."
+msgstr "**Decision**: In the need for a standard single-agent interface, facing the cost of maintaining a private protocol, we choose Gymnasium `reset/step` over a custom environment API, gaining ecosystem compatibility while accepting Gymnasium as a runtime dependency."
+
+#: ../../../docs/decisions/0002-gymnasium-contract.md:12
+msgid "**Consequences**: Observation and action spaces are explicit and tested; the package still contains no trainer or algorithm integration."
+msgstr "**Consequences**: Observation and action spaces are explicit and tested; the package still contains no trainer or algorithm integration."
+
+#: ../../../docs/decisions/0002-gymnasium-contract.md:14
+msgid "**Alternatives Considered**: A private reset/step protocol was rejected because every downstream user would need an adapter."
+msgstr "**Alternatives Considered**: A private reset/step protocol was rejected because every downstream user would need an adapter."
+
+#: ../../../docs/decisions/0003-runtime-geometry.md:2
+msgid "0003: Runtime geometry response"
+msgstr "0003: Runtime geometry response"
+
+#: ../../../docs/decisions/0003-runtime-geometry.md:6
+msgid "**Context**: Head or sensor motion changes where a fixed winding is evaluated, so a fixed response matrix cannot faithfully describe every pose."
+msgstr "**Context**: Head or sensor motion changes where a fixed winding is evaluated, so a fixed response matrix cannot faithfully describe every pose."
+
+#: ../../../docs/decisions/0003-runtime-geometry.md:8
+msgid "**Decision**: In the need for moving-grid environments, facing high repeated field-computation cost, we choose analytic finite-segment Biot-Savart with an identity-bound pose cache instead of fixed-matrix fallback or interpolation, gaining physical fidelity while accepting greater per-step cost."
+msgstr "**Decision**: In the need for moving-grid environments, facing high repeated field-computation cost, we choose analytic finite-segment Biot-Savart with an identity-bound pose cache instead of fixed-matrix fallback or interpolation, gaining physical fidelity while accepting greater per-step cost."
+
+#: ../../../docs/decisions/0003-runtime-geometry.md:12
+msgid "**Consequences**: Dynamic packages must include conductor geometry; repeated exact poses can reuse computed responses, but unseen poses are recomputed."
+msgstr "**Consequences**: Dynamic packages must include conductor geometry; repeated exact poses can reuse computed responses, but unseen poses are recomputed."
+
+#: ../../../docs/decisions/0003-runtime-geometry.md:14
+msgid "**Alternatives Considered**: Silent fixed-matrix fallback and nearest-pose interpolation were rejected because they change the declared physical model."
+msgstr "**Alternatives Considered**: Silent fixed-matrix fallback and nearest-pose interpolation were rejected because they change the declared physical model."
+
+#: ../../../docs/decisions/0004-textual-tui.md:2
+msgid "0004: Textual as the interactive front end"
+msgstr "0004: Textual as the interactive front end"
+
+#: ../../../docs/decisions/0004-textual-tui.md:6
+msgid "**Context**: Environment construction requires revisiting several related sections and reviewing errors before export."
+msgstr "**Context**: Environment construction requires revisiting several related sections and reviewing errors before export."
+
+#: ../../../docs/decisions/0004-textual-tui.md:8
+msgid "**Decision**: In the need for a navigable terminal workflow, facing the limits of a one-way prompt sequence, we choose Textual over raw `input()` prompts, gaining editable screens and testable UI state while accepting one UI dependency."
+msgstr "**Decision**: In the need for a navigable terminal workflow, facing the limits of a one-way prompt sequence, we choose Textual over raw `input()` prompts, gaining editable screens and testable UI state while accepting one UI dependency."
+
+#: ../../../docs/decisions/0004-textual-tui.md:12
+msgid "**Consequences**: TUI logic remains a thin client of the same builder API used by automation."
+msgstr "**Consequences**: TUI logic remains a thin client of the same builder API used by automation."
+
+#: ../../../docs/decisions/0004-textual-tui.md:14
+msgid "**Alternatives Considered**: A sequential prompt wizard was rejected because users cannot efficiently review and revise a complete physical definition."
+msgstr "**Alternatives Considered**: A sequential prompt wizard was rejected because users cannot efficiently review and revise a complete physical definition."
+
+#: ../../architecture/index.md:23
+msgid "相关资料"
+msgstr "Related material"
+
+#: ../../architecture/index.md:25
+msgid "格式契约：[参考：格式契约](../reference/format-contracts)"
+msgstr "Format contracts: [Reference: format contracts](../reference/format-contracts)"
+
+#: ../../architecture/index.md:26
+msgid "操作入口：[快速开始](../getting-started/index)"
+msgstr "Getting started: [Quick start](../getting-started/index)"
+
+#: ../../architecture/index.md:27
+msgid "仓库内的用户指南：[`docs/user-guide/`](https://github.com/voxServalG/magshield-env/tree/main/docs/user-guide)"
+msgstr "In-repository user guide: [`docs/user-guide/`](https://github.com/voxServalG/magshield-env/tree/main/docs/user-guide)"
+
+#: ../../architecture/index.md:29
+msgid "贡献入口"
+msgstr "Contributing"
+
+#: ../../architecture/index.md:31
+msgid "贡献流程见仓库根目录的 `CONTRIBUTING.md`；Agent 构建工作流见 `skills/magshield-env-builder/SKILL.md`。"
+msgstr "See `CONTRIBUTING.md` at the repository root for contribution flow; the agent builder workflow is in `skills/magshield-env-builder/SKILL.md`."

@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../concepts/coordinate-frames.md:1
+msgid "概念：坐标框架"
+msgstr "Concept: Coordinate frames"
+
+#: ../../concepts/coordinate-frames.md:3
+msgid "坐标框架同时绑定位置和矢量分量的含义。**点框架**说明坐标在哪里；**响应框架**、**外部场框架**和**基分量框架**说明三个矢量分量用了哪套轴。数组形状相同绝不意味着框架相同。"
+msgstr "A coordinate frame binds both locations and the meaning of vector components. The **point frame** says where coordinates live; the **response frame**, **external-field frame**, and **basis component frame** say which axes the three vector components use. Equal array shapes never imply equal frames."
+
+#: ../../concepts/coordinate-frames.md:5
+msgid "固定响应包"
+msgstr "Fixed-response packages"
+
+#: ../../concepts/coordinate-frames.md:7
+msgid "固定响应包要求外部场分量框架等于响应框架，然后残差才能按分量相加。"
+msgstr "Fixed-response packages require the external-field component frame to equal the response frame so residuals can be added component-wise."
+
+#: ../../concepts/coordinate-frames.md:9
+msgid "动态几何包"
+msgstr "Dynamic-geometry packages"
+
+#: ../../concepts/coordinate-frames.md:11
+msgid "动态几何包额外声明三件事："
+msgstr "Dynamic-geometry packages declare three additional facts:"
+
+#: ../../concepts/coordinate-frames.md:13
+msgid "`pose_source_frame`：位姿从哪个框架出发——必须等于点框架。"
+msgstr "`pose_source_frame`: the frame a pose starts from; must equal the point frame."
+
+#: ../../concepts/coordinate-frames.md:14
+msgid "`pose_target_frame`：位姿把导体变换到什么框架——必须等于路径框架（`path_frame`）。"
+msgstr "`pose_target_frame`: the frame a pose transforms the conductors into; must equal the path frame (`path_frame`)."
+
+#: ../../concepts/coordinate-frames.md:15
+msgid "每个位姿是一个从点框架到路径框架的刚性变换，旋转同时改变点位置和矢量分量方向。"
+msgstr "Each pose is a rigid transform from the point frame to the path frame; rotation changes both point locations and the direction of vector components."
+
+#: ../../concepts/coordinate-frames.md:17
+msgid "可选观测基投影要求基的矢量分量框架等于响应框架，基向量才可以在同一框架里投影。"
+msgstr "Optional basis observations require the basis vector-component frame to equal the response frame so the basis can be applied in one frame."
+
+#: ../../concepts/coordinate-frames.md:19
+msgid "实际含义"
+msgstr "What this means in practice"
+
+#: ../../concepts/coordinate-frames.md:21
+msgid "框架字符串是精确身份，不是给人看的描述。一次拼写不一致就会产生“形状匹配但物理错误”的包；这也是校验器检查的第一个重点。检查顺序：点框架 → 响应/外场/基框架 → 位姿源/目标框架。"
+msgstr "Frame strings are exact identities, not human-facing descriptions. One spelling mismatch creates a package that is shape-consistent but physically wrong; this is the first thing the validator checks. Check in order: point frame, then response/external-field/basis frames, then pose source/target frames."

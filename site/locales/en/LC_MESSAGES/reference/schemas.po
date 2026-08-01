@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Last-Translator: Vox Gu <2020308160237@cau.edu.cn>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../reference/schemas.md:1
+msgid "参考：JSON Schema"
+msgstr "Reference: JSON Schema"
+
+#: ../../reference/schemas.md:3
+msgid "构建定义、环境包和几何通道各有权威的 JSON Schema 投影，随 wheel 一起分发："
+msgstr "Build definitions, environment packages, and geometry channels each have an authoritative JSON Schema projection shipped with the wheel:"
+
+#: ../../reference/schemas.md
+msgid "名称"
+msgstr "Name"
+
+#: ../../reference/schemas.md
+msgid "用途"
+msgstr "Purpose"
+
+#: ../../reference/schemas.md
+msgid "`build-config`"
+msgstr "`build-config`"
+
+#: ../../reference/schemas.md
+msgid "`build.yaml` 构建定义"
+msgstr "The `build.yaml` build definition"
+
+#: ../../reference/schemas.md
+msgid "`environment-package`"
+msgstr "`environment-package`"
+
+#: ../../reference/schemas.md
+msgid "导出包里的 `environment.yaml`"
+msgstr "`environment.yaml` in an exported package"
+
+#: ../../reference/schemas.md
+msgid "`geometry-channels`"
+msgstr "`geometry-channels`"
+
+#: ../../reference/schemas.md
+msgid "导体路径的通道几何 YAML"
+msgstr "Channel-geometry YAML for conductor paths"
+
+#: ../../reference/schemas.md:17
+msgid "仓库里的 `schemas/` 目录是同一投影的确定性提交版本；契约测试要求模型修改后重新生成 schema，且归一化 JSON 字节完全一致。模型与 schema 必须在同一次改动里更新。"
+msgstr "The repository's `schemas/` directory is the deterministic committed projection; contract tests regenerate the schema after model changes and require byte-equivalent normalized JSON. Model and schema must be updated in the same change."

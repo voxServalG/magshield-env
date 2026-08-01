@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../concepts/json-output.md:1
+msgid "概念：命令输出契约"
+msgstr "Concept: Command output contract"
+
+#: ../../concepts/json-output.md:3
+msgid "面向脚本的命令（`validate`、`inspect`）在 stdout 输出**恰好一个** JSON 信封："
+msgstr "Script-facing commands (`validate`, `inspect`) write **exactly one** JSON envelope on stdout:"
+
+#: ../../concepts/json-output.md:5
+msgid "成功：`ok: true`，附带 `command` 和 `result`。"
+msgstr "Success: `ok: true` with `command` and `result`."
+
+#: ../../concepts/json-output.md:6
+msgid "失败：`ok: false`，附带 `command` 和结构化的 `error`（`type`、`subtype`、`message`、`hint`）。"
+msgstr "Failure: `ok: false` with `command` and a structured `error` (`type`, `subtype`, `message`, `hint`)."
+
+#: ../../concepts/json-output.md:8
+msgid "规则："
+msgstr "Rules:"
+
+#: ../../concepts/json-output.md:10
+msgid "`--help` 和 `--version` 输出纯文本，不受信封约束。"
+msgstr "`--help` and `--version` output plain text and are exempt from the envelope."
+
+#: ../../concepts/json-output.md:11
+msgid "进度、调试和诊断信息一律走 stderr，不污染 stdout 的 JSON 流。"
+msgstr "Progress, debug, and diagnostic information always goes to stderr and never pollutes the stdout JSON stream."
+
+#: ../../concepts/json-output.md:12
+msgid "TUI 的交互画面走 stderr，stdout 保持未使用。"
+msgstr "The TUI renders to stderr and leaves stdout unused."
+
+#: ../../concepts/json-output.md:13
+msgid "错误信封不是成功；解析时先读 `ok` 字段。"
+msgstr "An error envelope is not a success; read the `ok` field first when parsing."
+
+#: ../../concepts/json-output.md:15
+msgid "脚本消费示例见[操作指南：在脚本和 CI 中消费命令输出](../how-to/use-json-output)。"
+msgstr "A script-consumption example: [How-to: consuming command output in scripts and CI](../how-to/use-json-output)."

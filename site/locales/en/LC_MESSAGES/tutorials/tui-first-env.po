@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../tutorials/tui-first-env.md:1
+msgid "教程：用 TUI 构建第一个环境"
+msgstr "Tutorial: Build your first environment with the TUI"
+
+#: ../../tutorials/tui-first-env.md:3
+msgid "本教程带你走完从物理定义到可加载环境包的完整流程。开始前先运行 `magshield-env tui --help` 确认当前界面参数；界面本身是交互式的，命令参数以 `--help` 为准。"
+msgstr "This tutorial walks the complete path from physical definition to a loadable environment package. Run `magshield-env tui --help` first to confirm the current interface options; the interface is interactive and command parameters follow `--help`."
+
+#: ../../tutorials/tui-first-env.md:5
+msgid "打开向导"
+msgstr "Open the wizard"
+
+#: ../../tutorials/tui-first-env.md:11
+msgid "如果运行环境没有鼠标支持，可以按 `--help` 中的说明关闭鼠标输入。向导共五个页面，每一页完成并校验通过后才能进入下一页。"
+msgstr "If the runtime has no mouse support, disable mouse input as described in `--help`. The wizard has five pages, and each page must be completed and validated before the next one unlocks."
+
+#: ../../tutorials/tui-first-env.md:13
+msgid "第一步：采样区域"
+msgstr "Step 1: sampling region"
+
+#: ../../tutorials/tui-first-env.md:15
+msgid "选择“生成”或“导入”："
+msgstr "Choose Generate or Import:"
+
+#: ../../tutorials/tui-first-env.md:17
+msgid "**生成**：声明一个笛卡尔盒、圆柱、球体或球面点集，给出边界、间距（或点数）和中心。"
+msgstr "**Generate**: declare a Cartesian box, cylinder, sphere, or sphere-surface point set with bounds, spacing (or point count), and center."
+
+#: ../../tutorials/tui-first-env.md:18
+msgid "**导入**：选择 CSV、HDF5 或 VTK 族点集文件，并显式声明坐标框架。"
+msgstr "**Import**: choose a CSV, HDF5, or VTK-family point-set file and explicitly declare the coordinate frame."
+
+#: ../../tutorials/tui-first-env.md:20
+msgid "进入下一步前，检查点数量、空间范围、点顺序和权重是否就是你想要的评估网格。框架不是可选项——没有框架，后面的响应矩阵和外部场都没有意义。"
+msgstr "Before moving on, check that the point count, spatial extent, point order, and weights are the evaluation grid you intend. The frame is not optional; without it, response matrices and external fields are meaningless."
+
+#: ../../tutorials/tui-first-env.md:22
+msgid "第二步：正向模型"
+msgstr "Step 2: forward model"
+
+#: ../../tutorials/tui-first-env.md:24
+msgid "三选一，且只能选一个："
+msgstr "Choose exactly one of three:"
+
+#: ../../tutorials/tui-first-env.md:26
+msgid "**固定响应矩阵**：一个 `[N, 3, M]` 的响应张量，点和通道顺序已绑定。"
+msgstr "**Fixed response matrix**: one `[N, 3, M]` response tensor with bound point and channel order."
+
+#: ../../tutorials/tui-first-env.md:27
+msgid "**有限元逐通道场**：每个通道一个三分量 CSV（或 HDF5/VTK 变体），全部作用在同一权威点集上。"
+msgstr "**Per-channel finite-element fields**: one three-component CSV per channel (or HDF5/VTK variants), all on the same authoritative point set."
+
+#: ../../tutorials/tui-first-env.md:28
+msgid "**导体几何**：CSV/VTP 路径加通道几何 YAML，运行期按位姿实时计算 Biot-Savart 响应。"
+msgstr "**Conductor geometry**: CSV/VTP paths plus a channel-geometry YAML, computing Biot-Savart responses at runtime per pose."
+
+#: ../../tutorials/tui-first-env.md:30
+msgid "如果选动态几何，向导会要求路径框架和位姿源/目标框架；这三个框架必须构成正确的变换链。"
+msgstr "For dynamic geometry the wizard asks for the path frame and the pose source/target frames; the three frames must form a correct transform chain."
+
+#: ../../tutorials/tui-first-env.md:32
+msgid "第三步：硬件"
+msgstr "Step 3: hardware"
+
+#: ../../tutorials/tui-first-env.md:34
+msgid "对每个通道声明电流下限、电流上限、正向爬升率、电阻和电压上限，再声明控制器步长。通道标识必须唯一，并且顺序与响应矩阵的通道列完全一致。"
+msgstr "Declare per-channel current lower and upper bounds, positive slew rate, resistance, and voltage limit, plus the controller timestep. Channel IDs must be unique and match the response matrix's channel-column order exactly."
+
+#: ../../tutorials/tui-first-env.md:36
+msgid "第四步：场景"
+msgstr "Step 4: scenario"
+
+#: ../../tutorials/tui-first-env.md:38
+msgid "静态场景可以带一个外部场和（可选的）完整位姿；位姿必须是平移加四元数成对出现。轨迹场景则绑定一个 HDF5 文件，其中所有随时间变化的数组共享相同的帧数。动态几何环境里，每个运行时帧都必须有位姿。"
+msgstr "A static scenario may carry one external field and an optional complete pose; pose must appear as a translation-plus-quaternion pair. A trajectory scenario binds one HDF5 file whose time-varying arrays share the same frame count. In dynamic-geometry environments every runtime frame must have a pose."
+
+#: ../../tutorials/tui-first-env.md:40
+msgid "第五步：环境行为"
+msgstr "Step 5: environment behavior"
+
+#: ../../tutorials/tui-first-env.md:42
+msgid "选择全场观测还是线性基投影、是否把位姿放进观测、非法动作采用“投影并报告”还是“终止回合”，并声明奖励各项的尺度和权重。这些都是物理声明，不是事后再调的隐藏参数。"
+msgstr "Choose full-field observation or a linear basis projection, whether to include pose, whether illegal actions use project-and-report or terminate, and the reward scales and weights. These are physical declarations, not hidden parameters to tune afterwards."
+
+#: ../../tutorials/tui-first-env.md:44
+msgid "校验页与导出"
+msgstr "Validation page and export"
+
+#: ../../tutorials/tui-first-env.md:46
+msgid "最后一页列出点数和通道数、响应形状与秩、响应内存估算、动态计算成本，以及所有阻塞问题。**只有零阻塞问题时才允许导出。** 选择一个全新的空目录，向导会原子地写出环境包；它不会覆盖已有目录。"
+msgstr "The final page lists point and channel counts, response shape and rank, estimated response memory, dynamic computation cost, and every blocking issue. **Export is allowed only with zero blocking issues.** Pick a new empty directory; the wizard writes the package atomically and never overwrites an existing directory."
+
+#: ../../tutorials/tui-first-env.md:48
+msgid "导出后，运行包校验器和检查器，然后加载一次并执行一个合法 step，再交给下游强化学习代码："
+msgstr "After export, run the package validator and inspector, load once, and take one legal step before handing the environment to downstream reinforcement-learning code:"
+
+#: ../../tutorials/tui-first-env.md:67
+msgid "任何校验失败都按错误信息里的提示修复源文件，再重新校验；不要通过放宽容差、重排数据或切换物理模式来“获得”一个包。"
+msgstr "On any validation failure, fix the source file as the error hints and validate again; do not 'obtain' a package by loosening tolerances, reordering data, or switching physics modes."

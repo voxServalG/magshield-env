@@ -61,6 +61,13 @@ report = build_environment(config)
 validation = validate_environment(report.output_dir)
 ```
 
+## Documentation
+
+The bilingual user documentation (Chinese authoritative, English translation)
+is published on ReadTheDocs: <https://magshield-env.readthedocs.io/>. Sources
+live in [`site/`](site/); build and translation workflows are described in
+[`site/README.md`](site/README.md).
+
 ## Contracts and examples
 
 - [`docs/formats.md`](docs/formats.md) defines units, identities, CSV, HDF5,

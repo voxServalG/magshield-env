@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../concepts/environment-package.md:1
+msgid "概念：环境包与 manifest"
+msgstr "Concept: Environment packages and the manifest"
+
+#: ../../concepts/environment-package.md:3
+msgid "一次成功的构建产生一个**自包含、可移植**的目录，恰好包含六个契约文件："
+msgstr "A successful build produces a **self-contained, portable** directory containing exactly six contract files:"
+
+#: ../../concepts/environment-package.md:14
+msgid "`environment.yaml`：命名不可变的包成员，声明 Gymnasium 接口行为。"
+msgstr "`environment.yaml`: names the immutable package members and declares Gymnasium interface behavior."
+
+#: ../../concepts/environment-package.md:15
+msgid "`physics.h5`：点身份加响应数据，或导体几何。"
+msgstr "`physics.h5`: point identity plus response data, or conductor geometry."
+
+#: ../../concepts/environment-package.md:16
+msgid "`hardware.yaml`：冻结的有序通道约束。"
+msgstr "`hardware.yaml`: frozen, ordered channel constraints."
+
+#: ../../concepts/environment-package.md:17
+msgid "`scenario.h5`：外部场与位姿帧。"
+msgstr "`scenario.h5`: external-field and pose frames."
+
+#: ../../concepts/environment-package.md:18
+msgid "`manifest.json`：记录 schema 版本、来源身份、坐标框架、数组形状、通道顺序和每个成员的 SHA-256。"
+msgstr "`manifest.json`: records schema versions, source identities, coordinate frame, array shapes, channel order, and the SHA-256 of every member."
+
+#: ../../concepts/environment-package.md:20
+msgid "包的性质："
+msgstr "Package properties:"
+
+#: ../../concepts/environment-package.md:22
+msgid "缺少、多余、重排或被改动的成员都让校验失败；分析文件放在包旁边而不是里面。"
+msgstr "A missing, extra, reordered, or modified member fails validation; keep analysis files beside the package, not inside it."
+
+#: ../../concepts/environment-package.md:23
+msgid "导出是原子的：要么完整写出，要么不写；不覆盖已有目录。"
+msgstr "Export is atomic: either the complete package is written or nothing is; existing directories are never overwritten."
+
+#: ../../concepts/environment-package.md:24
+msgid "`make_env` 只读这个包，不接触任何原始构建源。"
+msgstr "`make_env` reads only this package and never touches original build sources."
+
+#: ../../concepts/environment-package.md:26
+msgid "六文件之外的任何内容（说明文件、修改过的字节、编辑过的 manifest）都会破坏校验，这是刻意的不变量。"
+msgstr "Anything beyond the six files (notes, modified bytes, edited manifest) breaks validation; this is an intentional invariant."

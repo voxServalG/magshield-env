@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../tutorials/import-point-set.md:1
+msgid "教程：导入测量点集"
+msgstr "Tutorial: Import a measured point set"
+
+#: ../../tutorials/import-point-set.md:3
+msgid "测量点集是评估区域的最常见来源。v0.1 只接受规范 SI 源文件，所有数值必须是有限的 float64。"
+msgstr "Measured point sets are the most common source of an evaluation region. v0.1 accepts only canonical SI source artifacts, and every numeric value must be a finite float64."
+
+#: ../../tutorials/import-point-set.md:5
+msgid "CSV 点集"
+msgstr "CSV point sets"
+
+#: ../../tutorials/import-point-set.md:7
+msgid "CSV 的头部和列顺序是固定的："
+msgstr "The CSV header and column order are fixed:"
+
+#: ../../tutorials/import-point-set.md:13
+msgid "`point_id` 非空且唯一；坐标和权重有限；权重必须为正。坐标单位是米，坐标框架在构建定义的 `region.frame` 里显式声明——CSV 文件本身不写框架。"
+msgstr "`point_id` is non-empty and unique; coordinates and weights are finite and weights must be positive. Coordinates are in metres, and the coordinate frame is declared explicitly in the build definition's `region.frame`; the CSV itself does not carry a frame."
+
+#: ../../tutorials/import-point-set.md:22
+msgid "HDF5 与 VTK 族变体"
+msgstr "HDF5 and VTK-family variants"
+
+#: ../../tutorials/import-point-set.md:24
+msgid "HDF5 根数据集为 `point_ids`、`points_m`、`weights`，根属性为 `coordinate_frame` 和 `length_unit=m`。"
+msgstr "HDF5 root datasets are `point_ids`, `points_m`, and `weights`, with root attributes `coordinate_frame` and `length_unit=m`."
+
+#: ../../tutorials/import-point-set.md:25
+msgid "VTK 族把坐标存为网格点，点数据 `weight` 附在点上；身份用标量 `point_id`，或无损的 `point_id_utf8` 加 `point_id_length` 组合；框架仍由构建定义声明。"
+msgstr "VTK-family point sets store coordinates as mesh points with point data `weight`; identity is scalar `point_id` or the lossless `point_id_utf8` plus `point_id_length` pair; the frame is still declared by the build definition."
+
+#: ../../tutorials/import-point-set.md:27
+msgid "精确布局见[参考：格式契约](../reference/format-contracts)。"
+msgstr "Exact layouts: [Reference: format contracts](../reference/format-contracts)."
+
+#: ../../tutorials/import-point-set.md:29
+msgid "导入前检查清单"
+msgstr "Checklist before importing"
+
+#: ../../tutorials/import-point-set.md:31
+msgid "坐标已经确定性转换为米，转换过程留在包外作为溯源记录。"
+msgstr "Coordinates are already deterministically converted to metres, with the conversion kept outside the package as provenance."
+
+#: ../../tutorials/import-point-set.md:32
+msgid "点 ID 唯一且稳定——后续所有响应文件都按这个 ID 顺序对齐。"
+msgstr "Point IDs are unique and stable; every later response file aligns to this ID order."
+
+#: ../../tutorials/import-point-set.md:33
+msgid "权重为正；如果你只想均匀评估，所有权重取 1 即可。"
+msgstr "Weights are positive; use 1 everywhere for uniform evaluation."
+
+#: ../../tutorials/import-point-set.md:34
+msgid "框架字符串拼写一致；框架是精确身份，不是描述文字。"
+msgstr "Frame strings match exactly; a frame is an exact identity, not descriptive text."
+
+#: ../../tutorials/import-point-set.md:36
+msgid "导入后先在向导或 `inspect_build` 里审查点数、范围、顺序和权重，再进入正向模型步骤。"
+msgstr "After import, review point count, extent, order, and weights in the wizard or `inspect_build` before moving to the forward-model step."

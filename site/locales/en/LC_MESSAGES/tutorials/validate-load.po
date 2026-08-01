@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../tutorials/validate-load.md:1
+msgid "教程：校验、导出并加载到训练循环"
+msgstr "Tutorial: Validate, export, and load into a training loop"
+
+#: ../../tutorials/validate-load.md:3
+msgid "校验是阻断性的科学契约，不是“尽力而为”的预览。它检查 schema、源文件、维度、点与通道顺序、单位、坐标框架、硬件可行性、场景对齐和内容身份。"
+msgstr "Validation is a blocking scientific contract, not a best-effort preview. It checks schemas, source files, dimensions, point and channel order, units, coordinate frames, hardware feasibility, scenario alignment, and content identities."
+
+#: ../../tutorials/validate-load.md:5
+msgid "校验与检查命令"
+msgstr "Validation and inspection commands"
+
+#: ../../tutorials/validate-load.md:12
+msgid "两条命令都在 stdout 输出恰好一个 JSON envelope（成功 `ok: true`，失败 `ok: false`），进度与诊断走 stderr。`--pretty` 只是美化缩进；其他参数以各自的 `--help` 为准。"
+msgstr "Both commands write exactly one JSON envelope on stdout (success `ok: true`, failure `ok: false`), with progress and diagnostics on stderr. `--pretty` only indents the output; other parameters follow each command's `--help`."
+
+#: ../../tutorials/validate-load.md:14
+msgid "Python 侧等价的校验器："
+msgstr "The equivalent validator in Python:"
+
+#: ../../tutorials/validate-load.md:23
+msgid "加载环境"
+msgstr "Load the environment"
+
+#: ../../tutorials/validate-load.md:40
+msgid "`info` 携带硬件约束证据；`terminated`/`truncated` 的语义见[概念：Gymnasium 接口](../concepts/gymnasium-interface)。"
+msgstr "`info` carries hardware constraint evidence; `terminated`/`truncated` semantics: [Concept: Gymnasium interface](../concepts/gymnasium-interface)."
+
+#: ../../tutorials/validate-load.md:42
+msgid "交给训练代码前的最小清单"
+msgstr "Minimal checklist before handing to training code"
+
+#: ../../tutorials/validate-load.md:44
+msgid "`validate_environment` 通过，所有 manifest 校验和与文件字节一致。"
+msgstr "`validate_environment` passes and every manifest checksum matches the file bytes."
+
+#: ../../tutorials/validate-load.md:45
+msgid "`make_env` 能加载，`reset` 返回合法的观测与 `info`。"
+msgstr "`make_env` loads, and `reset` returns a valid observation and `info`."
+
+#: ../../tutorials/validate-load.md:46
+msgid "至少执行一个合法 step，确认约束行为（`project_and_report` 或 `terminate`）符合预期。"
+msgstr "Take at least one legal step and confirm the constraint behavior (`project_and_report` or `terminate`) matches expectations."
+
+#: ../../tutorials/validate-load.md:47
+msgid "确认观测形状、动作形状和奖励量纲与你的算法假设一致。"
+msgstr "Confirm observation shape, action shape, and reward dimensions match your algorithm's assumptions."
+
+#: ../../tutorials/validate-load.md:49
+msgid "之后这个目录就可以像任何 Gymnasium 环境一样交给下游强化学习代码。"
+msgstr "Afterwards the directory behaves like any Gymnasium environment for downstream reinforcement-learning code."

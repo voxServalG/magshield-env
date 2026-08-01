@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../concepts/gymnasium-interface.md:1
+msgid "概念：Gymnasium 接口语义"
+msgstr "Concept: Gymnasium interface semantics"
+
+#: ../../concepts/gymnasium-interface.md:3
+msgid "导出的包通过标准 Gymnasium `reset/step` 接口消费，不包含任何训练代码。"
+msgstr "The exported package is consumed through the standard Gymnasium `reset/step` interface and contains no training code."
+
+#: ../../concepts/gymnasium-interface.md:5
+msgid "观测"
+msgstr "Observations"
+
+#: ../../concepts/gymnasium-interface.md:7
+msgid "`full_field`：所有评估点上的全场观测（残差场矢量，可选加外部场）。"
+msgstr "`full_field`: full-field observation over all evaluation points (residual-field vectors, optionally plus the external field)."
+
+#: ../../concepts/gymnasium-interface.md:8
+msgid "`basis`：用声明好的线性基对场做投影；基的矢量分量框架必须等于响应框架。"
+msgstr "`basis`: the field is projected with a declared linear basis; the basis vector-component frame must equal the response frame."
+
+#: ../../concepts/gymnasium-interface.md:9
+msgid "`include_pose`：把当前位姿（平移与四元数）加进观测。"
+msgstr "`include_pose`: the current pose (translation and quaternion) is added to the observation."
+
+#: ../../concepts/gymnasium-interface.md:11
+msgid "动作"
+msgstr "Actions"
+
+#: ../../concepts/gymnasium-interface.md:13
+msgid "`action_mode` 当前固定为 `current_delta`：动作是归一化的电流增量，硬件模型映射进合法区间（见[硬件投影](hardware-projection)）。"
+msgstr "`action_mode` is currently fixed to `current_delta`: actions are normalized current deltas that the hardware model maps into the legal interval (see [hardware projection](hardware-projection))."
+
+#: ../../concepts/gymnasium-interface.md:15
+msgid "奖励"
+msgstr "Reward"
+
+#: ../../concepts/gymnasium-interface.md:17
+msgid "奖励由构建时声明的项组成：场误差（阈值、尺度、权重）、功率、电流变化、约束惩罚，以及可选的额定电流偏差。每一项都是物理声明，不是隐藏超参数。"
+msgstr "Reward is composed of build-time-declared terms: field error (threshold, scale, weight), power, current change, constraint penalty, and an optional nominal-current deviation. Every term is a physical declaration, not a hidden hyperparameter."
+
+#: ../../concepts/gymnasium-interface.md:19
+msgid "终止与截断"
+msgstr "Termination and truncation"
+
+#: ../../concepts/gymnasium-interface.md:21
+msgid "`terminated`：回合因非法动作且 `constraint_mode=terminate` 而结束。"
+msgstr "`terminated`: the episode ends because an illegal action was taken with `constraint_mode=terminate`."
+
+#: ../../concepts/gymnasium-interface.md:22
+msgid "`truncated`：回合达到 `episode_length`（轨迹场景可配 `random_start`）。"
+msgstr "`truncated`: the episode reaches `episode_length` (trajectory scenarios may set `random_start`)."
+
+#: ../../concepts/gymnasium-interface.md:23
+msgid "其余情况下 `terminated`/`truncated` 为假，环境持续推进。"
+msgstr "Otherwise `terminated`/`truncated` are false and the environment continues."
+
+#: ../../concepts/gymnasium-interface.md:25
+msgid "info 中的证据"
+msgstr "Evidence in info"
+
+#: ../../concepts/gymnasium-interface.md:27
+msgid "`info` 携带硬件约束证据（请求动作与实际动作、命中的边界）。观测形状、动作形状和奖励量纲应与算法假设一致；不一致时回到构建定义修改，而不是在环境外打补丁。"
+msgstr "`info` carries hardware constraint evidence (requested versus applied action, and which bound was hit). Observation shape, action shape, and reward dimensions should match your algorithm's assumptions; if not, change the build definition rather than patching outside the environment."

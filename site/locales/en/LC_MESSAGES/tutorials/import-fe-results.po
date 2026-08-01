@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../tutorials/import-fe-results.md:1
+msgid "教程：导入有限元结果"
+msgstr "Tutorial: Import finite-element results"
+
+#: ../../tutorials/import-fe-results.md:3
+msgid "有限元求解器算出的磁场逐通道导入。**一个通道一个文件**，每个文件覆盖全部评估点、包含三分量，并且是规范 SI 单位。"
+msgstr "Fields computed by a finite-element solver are imported per channel. **One channel per file**, with every file covering all evaluation points, carrying three components, and using canonical SI units."
+
+#: ../../tutorials/import-fe-results.md:5
+msgid "每通道 CSV 格式"
+msgstr "Per-channel CSV format"
+
+#: ../../tutorials/import-fe-results.md:11
+msgid "`point_id` 必须与采样区域的点 ID 完全一致（顺序也要一致），`bx_T/by_T/bz_T` 是特斯拉单位的三分量。通道标识和分量坐标框架在构建定义中声明："
+msgstr "`point_id` must match the sampling region's point IDs exactly (order included); `bx_T/by_T/bz_T` are the three components in tesla. Channel identity and the component coordinate frame are declared in the build definition:"
+
+#: ../../tutorials/import-fe-results.md:25
+msgid "`channel_ids` 与 `channel_files` 一一对应，且顺序会被固化进 manifest。"
+msgstr "`channel_ids` and `channel_files` correspond one-to-one, and their order is frozen into the manifest."
+
+#: ../../tutorials/import-fe-results.md:27
+msgid "坐标容差"
+msgstr "Coordinate tolerance"
+
+#: ../../tutorials/import-fe-results.md:29
+msgid "`coordinate_tolerance_m` 是显式的坐标匹配容差，默认 0。有限元网格点与评估点不可能重排；如果你确实需要按坐标容差匹配，必须显式声明，且每个点只能无歧义地对应到一个评估点。重排一个文件而不重排所有依赖文件是常见错误来源。"
+msgstr "`coordinate_tolerance_m` is an explicit coordinate-matching tolerance, default 0. Finite-element mesh points and evaluation points can never be reordered; if you really need tolerance-based matching, declare it explicitly and every point must map unambiguously to one evaluation point. Reordering one file without reordering every dependent file is a common source of errors."
+
+#: ../../tutorials/import-fe-results.md:31
+msgid "HDF5 与 VTK 变体"
+msgstr "HDF5 and VTK variants"
+
+#: ../../tutorials/import-fe-results.md:33
+msgid "HDF5 字段：数据集 `point_ids`（`[N]`）和 `field_T_per_A`（`[N,3]`），根属性 `channel_id`、`coordinate_frame`、`field_unit=T/A`。"
+msgstr "HDF5 fields: datasets `point_ids` (`[N]`) and `field_T_per_A` (`[N,3]`), root attributes `channel_id`, `coordinate_frame`, and `field_unit=T/A`."
+
+#: ../../tutorials/import-fe-results.md:34
+msgid "VTK 族字段：点数据 `field_T_per_A`（`[N,3]`），点身份来自网格点，通道和框架在导入时声明。"
+msgstr "VTK-family fields: point data `field_T_per_A` (`[N,3]`); point identity comes from the mesh points, and channel and frame are declared at import."
+
+#: ../../tutorials/import-fe-results.md:36
+msgid "导出前的纪律"
+msgstr "Export discipline"
+
+#: ../../tutorials/import-fe-results.md:38
+msgid "在权威点集上重新导出所有通道，保持点顺序一致。"
+msgstr "Re-export all channels on the authoritative point set, keeping point order identical."
+
+#: ../../tutorials/import-fe-results.md:39
+msgid "非 SI 导出先在受控的预处理步骤里确定性转换，并保留原始文件与转换记录。"
+msgstr "Convert non-SI exports deterministically in a controlled preprocessing step and keep the original files and conversion records."
+
+#: ../../tutorials/import-fe-results.md:40
+msgid "不要平均、插值或丢弃任何通道。"
+msgstr "Never average, interpolate, or drop a channel."
+
+#: ../../tutorials/import-fe-results.md:42
+msgid "完成后，在硬件和场景步骤里使用完全相同的通道标识和顺序。"
+msgstr "Afterwards, use exactly the same channel identities and order in the hardware and scenario steps."

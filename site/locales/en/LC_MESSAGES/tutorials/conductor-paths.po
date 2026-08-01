@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../tutorials/conductor-paths.md:1
+msgid "教程：用导体路径构建动态几何环境"
+msgstr "Tutorial: Build a dynamic-geometry environment from conductor paths"
+
+#: ../../tutorials/conductor-paths.md:3
+msgid "当评估区域会随位姿运动时，固定响应矩阵不再忠实描述物理。这时用导体路径构建**动态几何**环境：运行期按当前位姿实时计算有限段 Biot-Savart 响应。"
+msgstr "When the evaluation region moves with pose, a fixed response matrix no longer describes the physics faithfully. Use conductor paths to build a **dynamic-geometry** environment: the runtime computes finite-segment Biot-Savart responses for the current pose."
+
+#: ../../tutorials/conductor-paths.md:5
+msgid "路径文件"
+msgstr "Path files"
+
+#: ../../tutorials/conductor-paths.md:7
+msgid "CSV 路径的头部固定为："
+msgstr "The CSV path header is fixed:"
+
+#: ../../tutorials/conductor-paths.md:13
+msgid "每个 `(channel_id, path_id)` 唯一；顶点按电流方向排列；`closed` 表示路径是否闭合。VTP 则是 `PolyData`：内联 ASCII 的 `Points` 与 `Lines`（`connectivity`/`offsets`），`CellData` 每条线带 `channel_id`、`path_id` 和 `closed`。"
+msgstr "Each `(channel_id, path_id)` is unique; vertices follow the current direction; `closed` marks whether the path closes. VTP is `PolyData`: inline ASCII `Points` and `Lines` (`connectivity`/`offsets`), with `CellData` giving `channel_id`, `path_id`, and `closed` per line."
+
+#: ../../tutorials/conductor-paths.md:15
+msgid "通道几何 YAML"
+msgstr "Channel-geometry YAML"
+
+#: ../../tutorials/conductor-paths.md:32
+msgid "每个 `contribution` 把一个路径副本旋转、平移、缩放（`gain`）后叠加到通道响应上；`allow_improper` 控制是否允许镜像（行列式为负）的变换。"
+msgstr "Each `contribution` rotates, translates, and scales (via `gain`) one copy of a path and adds it to the channel response; `allow_improper` controls whether mirror transforms (negative determinant) are permitted."
+
+#: ../../tutorials/conductor-paths.md:34
+msgid "构建定义"
+msgstr "Build definition"
+
+#: ../../tutorials/conductor-paths.md:47
+msgid "`pose_source_frame` 必须等于采样点的坐标框架，`pose_target_frame` 必须等于 `path_frame`。每个位姿被解释为从点框架到路径框架的刚性变换。"
+msgstr "`pose_source_frame` must equal the sampling points' coordinate frame, and `pose_target_frame` must equal `path_frame`. Each pose is interpreted as a rigid transform from the point frame to the path frame."
+
+#: ../../tutorials/conductor-paths.md:49
+msgid "运行期行为"
+msgstr "Runtime behavior"
+
+#: ../../tutorials/conductor-paths.md:51
+msgid "每个运行时帧都需要一个位姿；没有位姿就无法求响应。"
+msgstr "Every runtime frame needs a pose; without one, no response can be computed."
+
+#: ../../tutorials/conductor-paths.md:52
+msgid "完全相同的位姿可以命中身份绑定缓存；未见过的位姿直接计算。"
+msgstr "Exactly repeated poses may hit the identity-bound cache; unseen poses are computed directly."
+
+#: ../../tutorials/conductor-paths.md:53
+msgid "动态包必须包含完整导体几何；不存在固定矩阵回退。"
+msgstr "Dynamic packages must contain complete conductor geometry; there is no fixed-matrix fallback."
+
+#: ../../tutorials/conductor-paths.md:55
+msgid "详细物理语义见[概念：动态几何响应](../concepts/dynamic-geometry)。"
+msgstr "Full physical semantics: [Concept: dynamic geometry response](../concepts/dynamic-geometry)."

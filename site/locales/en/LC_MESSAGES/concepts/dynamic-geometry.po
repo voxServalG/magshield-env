@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../concepts/dynamic-geometry.md:1
+msgid "概念：动态几何响应"
+msgstr "Concept: Dynamic geometry response"
+
+#: ../../concepts/dynamic-geometry.md:3
+msgid "头部或传感器运动时，固定绕组在评估点产生的场随位姿变化，固定响应矩阵无法忠实描述每个位姿。动态几何模式在运行期实时计算："
+msgstr "When the head or a sensor moves, the field that a fixed winding produces at the evaluation points changes with pose, so a fixed response matrix cannot faithfully describe every pose. Dynamic geometry computes at runtime:"
+
+#: ../../concepts/dynamic-geometry.md:5
+msgid "每个位姿被解释为从点框架到路径框架的刚性变换（平移加四元数旋转）。"
+msgstr "Each pose is interpreted as a rigid transform (translation plus quaternion rotation) from the point frame to the path frame."
+
+#: ../../concepts/dynamic-geometry.md:6
+msgid "导体保持在声明的路径框架里不动，点被变换过去。"
+msgstr "Conductors stay fixed in their declared path frame; the points are transformed into it."
+
+#: ../../concepts/dynamic-geometry.md:7
+msgid "用有限段 Biot-Savart 解析式逐段计算场，再按通道贡献（旋转、平移、增益、是否允许镜像）叠加。"
+msgstr "The field is computed segment by segment with the analytic finite-segment Biot-Savart expression, then combined by channel contribution (rotation, translation, gain, and whether mirroring is allowed)."
+
+#: ../../concepts/dynamic-geometry.md:9
+msgid "因此："
+msgstr "Therefore:"
+
+#: ../../concepts/dynamic-geometry.md:11
+msgid "动态包必须包含完整导体几何（路径、贡献、路径框架）。"
+msgstr "Dynamic packages must contain complete conductor geometry (paths, contributions, path frame)."
+
+#: ../../concepts/dynamic-geometry.md:12
+msgid "每个运行时帧都需要位姿；位姿缺失时环境无法求响应。"
+msgstr "Every runtime frame needs a pose; without one the environment cannot evaluate a response."
+
+#: ../../concepts/dynamic-geometry.md:13
+msgid "重复的精确位姿命中身份绑定缓存（缓存大小由 `pose_cache_size` 声明），未见过的位姿直接计算。"
+msgstr "Repeated exact poses hit the identity-bound cache (size declared by `pose_cache_size`); unseen poses are computed directly."
+
+#: ../../concepts/dynamic-geometry.md:14
+msgid "不存在固定矩阵回退，也不存在最近位姿插值——两者都会改变声明的物理模型。"
+msgstr "There is no fixed-matrix fallback and no nearest-pose interpolation; both would change the declared physical model."
+
+#: ../../concepts/dynamic-geometry.md:16
+msgid "校验器会用打包的几何重建第一个位姿的参考响应；不一致说明打包成员不是同一个物理模型。"
+msgstr "The validator rebuilds the reference response for the first pose from the packaged geometry; a mismatch means the packaged members are not the same physical model."

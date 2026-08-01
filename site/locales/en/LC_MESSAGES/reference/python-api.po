@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Last-Translator: Vox Gu <2020308160237@cau.edu.cn>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../reference/python-api.md:1
+msgid "参考：Python API"
+msgstr "Reference: Python API"
+
+#: ../../reference/python-api.md:3
+msgid "包顶层导出以下公开 API。签名以当前安装版本为准；本页描述的是 v0.1 的行为。"
+msgstr "The package top level exports the following public API. Signatures follow the installed version; this page describes v0.1 behavior."
+
+#: ../../reference/python-api.md:5
+msgid "构建"
+msgstr "Building"
+
+#: ../../reference/python-api.md:21
+msgid "`BuildReport` 字段：`output_dir`、`package_identity`、`point_count`、`channel_count`、`response_shape`、`response_rank`、`response_memory_bytes`、`physics_mode`。"
+msgstr "`BuildReport` fields: `output_dir`, `package_identity`, `point_count`, `channel_count`, `response_shape`, `response_rank`, `response_memory_bytes`, `physics_mode`."
+
+#: ../../reference/python-api.md:23
+msgid "校验与检查"
+msgstr "Validation and inspection"
+
+#: ../../reference/python-api.md:32
+msgid "`ValidationReport` 字段：`package_dir`、`package_identity`、`point_count`、`channel_count`、`response_shape`、`response_rank`、`physics_mode`。"
+msgstr "`ValidationReport` fields: `package_dir`, `package_identity`, `point_count`, `channel_count`, `response_shape`, `response_rank`, `physics_mode`."
+
+#: ../../reference/python-api.md:34
+msgid "`inspect_environment` 返回的 dict 额外包含：`name`、`physics_mode`、`channel_ids`、`response_memory_bytes`、`observation_mode`、`include_pose`、`scenario_frames`、`episode_length`、`frames`、`units`。"
+msgstr "The dict returned by `inspect_environment` additionally contains `name`, `physics_mode`, `channel_ids`, `response_memory_bytes`, `observation_mode`, `include_pose`, `scenario_frames`, `episode_length`, `frames`, and `units`."
+
+#: ../../reference/python-api.md:36
+msgid "加载环境"
+msgstr "Loading the environment"
+
+#: ../../reference/python-api.md:44
+msgid "`make_env` 只消费校验过的环境包；接口语义见[概念：Gymnasium 接口](../concepts/gymnasium-interface)。"
+msgstr "`make_env` consumes only validated environment packages; interface semantics: [Concept: Gymnasium interface](../concepts/gymnasium-interface)."
+
+#: ../../reference/python-api.md:46
+msgid "JSON Schema"
+msgstr "JSON Schema"
+
+#: ../../reference/python-api.md:54
+msgid "支持的名称：`build-config`、`environment-package`、`geometry-channels`。未知名称立即抛 `ValueError`。"
+msgstr "Supported names: `build-config`, `environment-package`, `geometry-channels`. Unknown names raise `ValueError` immediately."

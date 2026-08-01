@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Vox Gu
+# This file is distributed under the same license as the magshield-env
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: magshield-env \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-01 19:43+0800\n"
+"PO-Revision-Date: 2026-08-01 12:00+0800\n"
+"Last-Translator: Vox Gu <2020308160237@cau.edu.cn>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../how-to/sampling.md:1
+msgid "操作指南：生成或导入采样区域"
+msgstr "How-to: Generate or import a sampling region"
+
+#: ../../how-to/sampling.md:3
+msgid "采样区域决定环境在哪些点上评估残差场。先想清楚物理边界、间距和框架，再打开向导或写构建定义。"
+msgstr "The sampling region decides at which points the environment evaluates the residual field. Decide the physical boundary, spacing, and frame first, then open the wizard or write a build definition."
+
+#: ../../how-to/sampling.md:5
+msgid "生成式区域"
+msgstr "Generated regions"
+
+#: ../../how-to/sampling.md:7
+msgid "构建定义支持四种生成式区域，全部使用规范 SI 单位（米）："
+msgstr "The build definition supports four generated regions, all in canonical SI units (metres):"
+
+#: ../../how-to/sampling.md
+msgid "类型"
+msgstr "Type"
+
+#: ../../how-to/sampling.md
+msgid "关键字段"
+msgstr "Key fields"
+
+#: ../../how-to/sampling.md
+msgid "说明"
+msgstr "Description"
+
+#: ../../how-to/sampling.md
+msgid "`box_cartesian`"
+msgstr "`box_cartesian`"
+
+#: ../../how-to/sampling.md
+msgid "`minimum_m`、`maximum_m`、`spacing_m`"
+msgstr "`minimum_m`、`maximum_m`、`spacing_m`"
+
+#: ../../how-to/sampling.md
+msgid "笛卡尔网格体"
+msgstr "Cartesian volume grid"
+
+#: ../../how-to/sampling.md
+msgid "`cylinder_cartesian`"
+msgstr "`cylinder_cartesian`"
+
+#: ../../how-to/sampling.md
+msgid "`radius_m`、`height_m`、`spacing_m`、`axis`、`center_m`"
+msgstr "`radius_m`、`height_m`、`spacing_m`、`axis`、`center_m`"
+
+#: ../../how-to/sampling.md
+msgid "沿 x/y/z 轴的圆柱网格"
+msgstr "Cylinder grid along the x/y/z axis"
+
+#: ../../how-to/sampling.md
+msgid "`sphere_cartesian`"
+msgstr "`sphere_cartesian`"
+
+#: ../../how-to/sampling.md
+msgid "`radius_m`、`spacing_m`、`center_m`"
+msgstr "`radius_m`、`spacing_m`、`center_m`"
+
+#: ../../how-to/sampling.md
+msgid "球体内部网格"
+msgstr "Grid inside a sphere"
+
+#: ../../how-to/sampling.md
+msgid "`sphere_surface`"
+msgstr "`sphere_surface`"
+
+#: ../../how-to/sampling.md
+msgid "`radius_m`、`point_count`、`center_m`"
+msgstr "`radius_m`、`point_count`、`center_m`"
+
+#: ../../how-to/sampling.md
+msgid "球面上的采样点（至少 4 个点）"
+msgstr "Points on a sphere surface (at least 4)"
+
+#: ../../how-to/sampling.md:16
+msgid "所有生成式区域都有 `frame` 字段（默认 `body`）。`spacing_m` 决定网格间距；`sphere_surface` 用点数而不是间距。"
+msgstr "All generated regions carry a `frame` field (default `body`). `spacing_m` sets the grid spacing; `sphere_surface` uses a point count instead of spacing."
+
+#: ../../how-to/sampling.md:18
+msgid "导入式区域"
+msgstr "Imported regions"
+
+#: ../../how-to/sampling.md:27
+msgid "支持 CSV、HDF5 和 VTK 族点集。CSV 头部必须是 `point_id,x_m,y_m,z_m,weight`；HDF5 和 VTK 的布局见[参考：格式契约](../reference/format-contracts)。"
+msgstr "CSV, HDF5, and VTK-family point sets are supported. The CSV header must be `point_id,x_m,y_m,z_m,weight`; HDF5 and VTK layouts are in [Reference: format contracts](../reference/format-contracts)."
+
+#: ../../how-to/sampling.md:29
+msgid "进入下一步前的审查清单"
+msgstr "Review checklist before moving on"
+
+#: ../../how-to/sampling.md:31
+msgid "**点数**：与你的评估预算和有限元网格一致。"
+msgstr "**Point count**: matches your evaluation budget and the finite-element mesh."
+
+#: ../../how-to/sampling.md:32
+msgid "**范围**：覆盖目标控制区域，没有意外的缺口或越界点。"
+msgstr "**Extent**: covers the target control region without unexpected gaps or out-of-bounds points."
+
+#: ../../how-to/sampling.md:33
+msgid "**框架**：字符串拼写与后续响应、外场声明完全一致。"
+msgstr "**Frame**: spelling matches the later response and external-field declarations exactly."
+
+#: ../../how-to/sampling.md:34
+msgid "**顺序**：点 ID 顺序会被固化；之后所有通道文件都按这个顺序对齐。"
+msgstr "**Order**: the point ID order is frozen; every later channel file aligns to it."
+
+#: ../../how-to/sampling.md:35
+msgid "**权重**：权重为正；均匀评估时全部取 1。"
+msgstr "**Weights**: positive; use 1 everywhere for uniform evaluation."
+
+#: ../../how-to/sampling.md:37
+msgid "审查发现问题就回到源头修正，不要在响应文件里单独重排。"
+msgstr "If review finds a problem, fix it at the source; never reorder a single response file on its own."
