@@ -20,15 +20,14 @@ root_doc = "index"
 
 # Chinese is the source of truth; English switches via READTHEDOCS_LANGUAGE.
 language = os.environ.get("READTHEDOCS_LANGUAGE", "zh_CN")
+is_chinese = language.replace("-", "_").lower() in {"zh", "zh_cn", "zh_hans"}
 locale_dirs = ["locales"]
 gettext_compact = False
 
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "README.md"]
 
 html_theme = "furo"
-html_title = (
-    "magshield-env 用户文档" if language == "zh_CN" else "magshield-env Documentation"
-)
+html_title = "magshield-env 用户文档" if is_chinese else "magshield-env Documentation"
 html_show_sourcelink = True
 
 myst_enable_extensions = ["colon_fence"]
