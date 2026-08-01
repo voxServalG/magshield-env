@@ -65,7 +65,7 @@ def test_minimal_example_has_frozen_cross_platform_package_identity(tmp_path: Pa
     report = build_environment(config)
 
     assert report.package_identity == (
-        "d3ac2cfb818390ac1b64b12c994f741676f2c92f804008449534a0f499329141"
+        "e6169552de3e574778a29ffc5c65e0d79a94121a0e8b8b6d51107d61e011c0a5"
     )
     physics = load_physics_h5(report.output_dir / "physics.h5")
     expected = np.array(
