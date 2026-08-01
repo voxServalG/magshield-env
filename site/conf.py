@@ -18,7 +18,7 @@ extensions = [
 source_suffix = {".md": "markdown"}
 root_doc = "index"
 
-# 中文是唯一事实源；ReadTheDocs 的英文项目通过 READTHEDOCS_LANGUAGE 切换。
+# Chinese is the source of truth; English switches via READTHEDOCS_LANGUAGE.
 language = os.environ.get("READTHEDOCS_LANGUAGE", "zh_CN")
 locale_dirs = ["locales"]
 gettext_compact = False
