@@ -1,0 +1,180 @@
+{
+  "$defs": {
+    "ContributionConfig": {
+      "additionalProperties": false,
+      "description": "Describe one transformed copy of all source conductors.",
+      "properties": {
+        "allow_improper": {
+          "default": false,
+          "title": "Allow Improper",
+          "type": "boolean"
+        },
+        "gain": {
+          "default": 1.0,
+          "title": "Gain",
+          "type": "number"
+        },
+        "rotation": {
+          "default": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "maxItems": 3,
+              "minItems": 3,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "maxItems": 3,
+              "minItems": 3,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "maxItems": 3,
+              "minItems": 3,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            }
+          ],
+          "title": "Rotation",
+          "type": "array"
+        },
+        "translation_m": {
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Translation M",
+          "type": "array"
+        }
+      },
+      "title": "ContributionConfig",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Bind a path file to channel order and explicit conductor copies.",
+  "properties": {
+    "channel_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Channel Ids",
+      "type": "array"
+    },
+    "contributions": {
+      "default": [
+        {
+          "allow_improper": false,
+          "gain": 1.0,
+          "rotation": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "items": {
+        "$ref": "#/$defs/ContributionConfig"
+      },
+      "title": "Contributions",
+      "type": "array"
+    },
+    "schema_name": {
+      "const": "magshield_env.geometry_channels",
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_name",
+    "schema_version",
+    "channel_ids"
+  ],
+  "title": "GeometryChannelsConfig",
+  "type": "object"
+}

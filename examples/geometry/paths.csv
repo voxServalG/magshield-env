@@ -1,0 +1,5 @@
+channel_id,path_id,vertex_index,x_m,y_m,z_m,closed
+ch0,loop,0,-0.1,-0.1,0.0,true
+ch0,loop,1,0.1,-0.1,0.0,true
+ch0,loop,2,0.1,0.1,0.0,true
+ch0,loop,3,-0.1,0.1,0.0,true

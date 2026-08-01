@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<VTKFile type="PolyData" version="0.1" byte_order="LittleEndian">
+  <PolyData>
+    <Piece NumberOfPoints="4" NumberOfLines="1">
+      <Points>
+        <DataArray type="Float64" NumberOfComponents="3" format="ascii">
+          -0.1 -0.1 0.0  0.1 -0.1 0.0  0.1 0.1 0.0
+          -0.1 0.1 0.0
+        </DataArray>
+      </Points>
+      <Lines>
+        <DataArray type="Int64" Name="connectivity" format="ascii">0 1 2 3 0</DataArray>
+        <DataArray type="Int64" Name="offsets" format="ascii">5</DataArray>
+      </Lines>
+      <CellData>
+        <DataArray type="String" Name="channel_id" format="ascii">ch0</DataArray>
+        <DataArray type="String" Name="path_id" format="ascii">loop</DataArray>
+        <DataArray type="UInt8" Name="closed" format="ascii">1</DataArray>
+      </CellData>
+    </Piece>
+  </PolyData>
+</VTKFile>

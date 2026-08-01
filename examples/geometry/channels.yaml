@@ -1,0 +1,12 @@
+schema_name: magshield_env.geometry_channels
+schema_version: 1
+channel_ids:
+  - ch0
+contributions:
+  - rotation:
+      - [1.0, 0.0, 0.0]
+      - [0.0, 1.0, 0.0]
+      - [0.0, 0.0, 1.0]
+    translation_m: [0.0, 0.0, 0.0]
+    allow_improper: false
+    gain: 1.0

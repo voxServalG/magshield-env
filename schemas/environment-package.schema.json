@@ -1,0 +1,323 @@
+{
+  "$defs": {
+    "PackagedPhysics": {
+      "additionalProperties": false,
+      "description": "Tell the loader which physics data and runtime mode to consume.",
+      "properties": {
+        "file": {
+          "const": "physics.h5",
+          "default": "physics.h5",
+          "title": "File",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "fixed",
+            "dynamic_geometry"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "path_frame": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Path Frame"
+        },
+        "pose_cache_size": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Pose Cache Size",
+          "type": "integer"
+        },
+        "pose_source_frame": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pose Source Frame"
+        },
+        "pose_target_frame": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pose Target Frame"
+        },
+        "response_dataset": {
+          "const": "/response_T_per_A",
+          "default": "/response_T_per_A",
+          "title": "Response Dataset",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "title": "PackagedPhysics",
+      "type": "object"
+    },
+    "PackagedScenario": {
+      "additionalProperties": false,
+      "description": "Tell the loader how to consume exogenous field and pose frames.",
+      "properties": {
+        "episode_length": {
+          "minimum": 1,
+          "title": "Episode Length",
+          "type": "integer"
+        },
+        "external_field_component_frame": {
+          "minLength": 1,
+          "title": "External Field Component Frame",
+          "type": "string"
+        },
+        "file": {
+          "const": "scenario.h5",
+          "default": "scenario.h5",
+          "title": "File",
+          "type": "string"
+        },
+        "has_pose": {
+          "title": "Has Pose",
+          "type": "boolean"
+        },
+        "random_start": {
+          "default": false,
+          "title": "Random Start",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "episode_length",
+        "has_pose",
+        "external_field_component_frame"
+      ],
+      "title": "PackagedScenario",
+      "type": "object"
+    },
+    "RewardConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_scale_a": {
+          "exclusiveMinimum": 0,
+          "title": "Constraint Scale A",
+          "type": "number"
+        },
+        "constraint_weight": {
+          "minimum": 0.0,
+          "title": "Constraint Weight",
+          "type": "number"
+        },
+        "field_scale_t": {
+          "exclusiveMinimum": 0,
+          "title": "Field Scale T",
+          "type": "number"
+        },
+        "field_threshold_t": {
+          "minimum": 0.0,
+          "title": "Field Threshold T",
+          "type": "number"
+        },
+        "field_weight": {
+          "minimum": 0.0,
+          "title": "Field Weight",
+          "type": "number"
+        },
+        "nominal_currents_a": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Currents A"
+        },
+        "nominal_scale_a": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Scale A"
+        },
+        "nominal_weight": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Weight"
+        },
+        "power_scale_w": {
+          "exclusiveMinimum": 0,
+          "title": "Power Scale W",
+          "type": "number"
+        },
+        "power_weight": {
+          "minimum": 0.0,
+          "title": "Power Weight",
+          "type": "number"
+        },
+        "slew_scale_a": {
+          "exclusiveMinimum": 0,
+          "title": "Slew Scale A",
+          "type": "number"
+        },
+        "slew_weight": {
+          "minimum": 0.0,
+          "title": "Slew Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "field_scale_t",
+        "field_threshold_t",
+        "field_weight",
+        "power_scale_w",
+        "power_weight",
+        "slew_scale_a",
+        "slew_weight",
+        "constraint_scale_a",
+        "constraint_weight"
+      ],
+      "title": "RewardConfig",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Load one self-contained Gymnasium environment package.",
+  "properties": {
+    "action_mode": {
+      "const": "current_delta",
+      "default": "current_delta",
+      "title": "Action Mode",
+      "type": "string"
+    },
+    "constraint_mode": {
+      "enum": [
+        "project_and_report",
+        "terminate"
+      ],
+      "title": "Constraint Mode",
+      "type": "string"
+    },
+    "hardware_file": {
+      "const": "hardware.yaml",
+      "default": "hardware.yaml",
+      "title": "Hardware File",
+      "type": "string"
+    },
+    "include_pose": {
+      "title": "Include Pose",
+      "type": "boolean"
+    },
+    "manifest_file": {
+      "const": "manifest.json",
+      "default": "manifest.json",
+      "title": "Manifest File",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "observation_basis_component_frame": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observation Basis Component Frame"
+    },
+    "observation_basis_dataset": {
+      "anyOf": [
+        {
+          "const": "/observation_basis",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observation Basis Dataset"
+    },
+    "observation_mode": {
+      "enum": [
+        "full_field",
+        "basis"
+      ],
+      "title": "Observation Mode",
+      "type": "string"
+    },
+    "physics": {
+      "$ref": "#/$defs/PackagedPhysics"
+    },
+    "reward": {
+      "$ref": "#/$defs/RewardConfig"
+    },
+    "scenario": {
+      "$ref": "#/$defs/PackagedScenario"
+    },
+    "schema_name": {
+      "const": "magshield_env.environment_package",
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_name",
+    "schema_version",
+    "name",
+    "physics",
+    "scenario",
+    "observation_mode",
+    "include_pose",
+    "constraint_mode",
+    "reward"
+  ],
+  "title": "EnvironmentPackageConfig",
+  "type": "object"
+}

@@ -1,0 +1,914 @@
+{
+  "$defs": {
+    "BoxRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "frame": {
+          "default": "body",
+          "title": "Frame",
+          "type": "string"
+        },
+        "kind": {
+          "const": "box_cartesian",
+          "title": "Kind",
+          "type": "string"
+        },
+        "maximum_m": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Maximum M",
+          "type": "array"
+        },
+        "minimum_m": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Minimum M",
+          "type": "array"
+        },
+        "spacing_m": {
+          "exclusiveMinimum": 0,
+          "title": "Spacing M",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "minimum_m",
+        "maximum_m",
+        "spacing_m"
+      ],
+      "title": "BoxRegion",
+      "type": "object"
+    },
+    "CylinderRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "axis": {
+          "default": "z",
+          "enum": [
+            "x",
+            "y",
+            "z"
+          ],
+          "title": "Axis",
+          "type": "string"
+        },
+        "center_m": {
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Center M",
+          "type": "array"
+        },
+        "frame": {
+          "default": "body",
+          "title": "Frame",
+          "type": "string"
+        },
+        "height_m": {
+          "exclusiveMinimum": 0,
+          "title": "Height M",
+          "type": "number"
+        },
+        "kind": {
+          "const": "cylinder_cartesian",
+          "title": "Kind",
+          "type": "string"
+        },
+        "radius_m": {
+          "exclusiveMinimum": 0,
+          "title": "Radius M",
+          "type": "number"
+        },
+        "spacing_m": {
+          "exclusiveMinimum": 0,
+          "title": "Spacing M",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "radius_m",
+        "height_m",
+        "spacing_m"
+      ],
+      "title": "CylinderRegion",
+      "type": "object"
+    },
+    "EnvironmentInterfaceConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "action_mode": {
+          "const": "current_delta",
+          "default": "current_delta",
+          "title": "Action Mode",
+          "type": "string"
+        },
+        "basis_component_frame": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Basis Component Frame"
+        },
+        "basis_dataset": {
+          "default": "/basis",
+          "title": "Basis Dataset",
+          "type": "string"
+        },
+        "basis_path": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Basis Path"
+        },
+        "constraint_mode": {
+          "default": "project_and_report",
+          "enum": [
+            "project_and_report",
+            "terminate"
+          ],
+          "title": "Constraint Mode",
+          "type": "string"
+        },
+        "include_pose": {
+          "default": false,
+          "title": "Include Pose",
+          "type": "boolean"
+        },
+        "observation_mode": {
+          "default": "full_field",
+          "enum": [
+            "full_field",
+            "basis"
+          ],
+          "title": "Observation Mode",
+          "type": "string"
+        },
+        "reward": {
+          "$ref": "#/$defs/RewardConfig"
+        }
+      },
+      "required": [
+        "reward"
+      ],
+      "title": "EnvironmentInterfaceConfig",
+      "type": "object"
+    },
+    "FiniteElementForward": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_files": {
+          "items": {
+            "format": "path",
+            "type": "string"
+          },
+          "title": "Channel Files",
+          "type": "array"
+        },
+        "channel_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Channel Ids",
+          "type": "array"
+        },
+        "coordinate_tolerance_m": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Coordinate Tolerance M",
+          "type": "number"
+        },
+        "kind": {
+          "const": "finite_element",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "channel_files",
+        "channel_ids"
+      ],
+      "title": "FiniteElementForward",
+      "type": "object"
+    },
+    "FixedMatrixForward": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Channel Ids",
+          "type": "array"
+        },
+        "dataset": {
+          "default": "/response_T_per_A",
+          "title": "Dataset",
+          "type": "string"
+        },
+        "kind": {
+          "const": "fixed_matrix",
+          "title": "Kind",
+          "type": "string"
+        },
+        "path": {
+          "format": "path",
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "channel_ids"
+      ],
+      "title": "FixedMatrixForward",
+      "type": "object"
+    },
+    "GeometryForward": {
+      "additionalProperties": false,
+      "properties": {
+        "channels": {
+          "format": "path",
+          "title": "Channels",
+          "type": "string"
+        },
+        "kind": {
+          "const": "geometry",
+          "title": "Kind",
+          "type": "string"
+        },
+        "path_frame": {
+          "minLength": 1,
+          "title": "Path Frame",
+          "type": "string"
+        },
+        "paths": {
+          "format": "path",
+          "title": "Paths",
+          "type": "string"
+        },
+        "pose_cache_size": {
+          "default": 64,
+          "minimum": 0,
+          "title": "Pose Cache Size",
+          "type": "integer"
+        },
+        "pose_source_frame": {
+          "minLength": 1,
+          "title": "Pose Source Frame",
+          "type": "string"
+        },
+        "pose_target_frame": {
+          "minLength": 1,
+          "title": "Pose Target Frame",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "paths",
+        "channels",
+        "path_frame",
+        "pose_source_frame",
+        "pose_target_frame"
+      ],
+      "title": "GeometryForward",
+      "type": "object"
+    },
+    "HardwareChannelConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "current_lower_a": {
+          "title": "Current Lower A",
+          "type": "number"
+        },
+        "current_upper_a": {
+          "title": "Current Upper A",
+          "type": "number"
+        },
+        "resistance_ohm": {
+          "exclusiveMinimum": 0,
+          "title": "Resistance Ohm",
+          "type": "number"
+        },
+        "slew_rate_upper_a_per_s": {
+          "exclusiveMinimum": 0,
+          "title": "Slew Rate Upper A Per S",
+          "type": "number"
+        },
+        "voltage_upper_v": {
+          "exclusiveMinimum": 0,
+          "title": "Voltage Upper V",
+          "type": "number"
+        }
+      },
+      "required": [
+        "channel_id",
+        "current_lower_a",
+        "current_upper_a",
+        "slew_rate_upper_a_per_s",
+        "resistance_ohm",
+        "voltage_upper_v"
+      ],
+      "title": "HardwareChannelConfig",
+      "type": "object"
+    },
+    "HardwareConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "channels": {
+          "items": {
+            "$ref": "#/$defs/HardwareChannelConfig"
+          },
+          "title": "Channels",
+          "type": "array"
+        },
+        "timestep_seconds": {
+          "exclusiveMinimum": 0,
+          "title": "Timestep Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestep_seconds",
+        "channels"
+      ],
+      "title": "HardwareConfig",
+      "type": "object"
+    },
+    "ImportedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "dataset": {
+          "default": "/",
+          "title": "Dataset",
+          "type": "string"
+        },
+        "frame": {
+          "title": "Frame",
+          "type": "string"
+        },
+        "kind": {
+          "const": "import",
+          "title": "Kind",
+          "type": "string"
+        },
+        "path": {
+          "format": "path",
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "frame"
+      ],
+      "title": "ImportedRegion",
+      "type": "object"
+    },
+    "RewardConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_scale_a": {
+          "exclusiveMinimum": 0,
+          "title": "Constraint Scale A",
+          "type": "number"
+        },
+        "constraint_weight": {
+          "minimum": 0.0,
+          "title": "Constraint Weight",
+          "type": "number"
+        },
+        "field_scale_t": {
+          "exclusiveMinimum": 0,
+          "title": "Field Scale T",
+          "type": "number"
+        },
+        "field_threshold_t": {
+          "minimum": 0.0,
+          "title": "Field Threshold T",
+          "type": "number"
+        },
+        "field_weight": {
+          "minimum": 0.0,
+          "title": "Field Weight",
+          "type": "number"
+        },
+        "nominal_currents_a": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Currents A"
+        },
+        "nominal_scale_a": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Scale A"
+        },
+        "nominal_weight": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Weight"
+        },
+        "power_scale_w": {
+          "exclusiveMinimum": 0,
+          "title": "Power Scale W",
+          "type": "number"
+        },
+        "power_weight": {
+          "minimum": 0.0,
+          "title": "Power Weight",
+          "type": "number"
+        },
+        "slew_scale_a": {
+          "exclusiveMinimum": 0,
+          "title": "Slew Scale A",
+          "type": "number"
+        },
+        "slew_weight": {
+          "minimum": 0.0,
+          "title": "Slew Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "field_scale_t",
+        "field_threshold_t",
+        "field_weight",
+        "power_scale_w",
+        "power_weight",
+        "slew_scale_a",
+        "slew_weight",
+        "constraint_scale_a",
+        "constraint_weight"
+      ],
+      "title": "RewardConfig",
+      "type": "object"
+    },
+    "SphereRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "center_m": {
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Center M",
+          "type": "array"
+        },
+        "frame": {
+          "default": "body",
+          "title": "Frame",
+          "type": "string"
+        },
+        "kind": {
+          "const": "sphere_cartesian",
+          "title": "Kind",
+          "type": "string"
+        },
+        "radius_m": {
+          "exclusiveMinimum": 0,
+          "title": "Radius M",
+          "type": "number"
+        },
+        "spacing_m": {
+          "exclusiveMinimum": 0,
+          "title": "Spacing M",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "radius_m",
+        "spacing_m"
+      ],
+      "title": "SphereRegion",
+      "type": "object"
+    },
+    "SphereSurfaceRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "center_m": {
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Center M",
+          "type": "array"
+        },
+        "frame": {
+          "default": "body",
+          "title": "Frame",
+          "type": "string"
+        },
+        "kind": {
+          "const": "sphere_surface",
+          "title": "Kind",
+          "type": "string"
+        },
+        "point_count": {
+          "minimum": 4,
+          "title": "Point Count",
+          "type": "integer"
+        },
+        "radius_m": {
+          "exclusiveMinimum": 0,
+          "title": "Radius M",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "radius_m",
+        "point_count"
+      ],
+      "title": "SphereSurfaceRegion",
+      "type": "object"
+    },
+    "StaticScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "episode_length": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Episode Length",
+          "type": "integer"
+        },
+        "external_field": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "External Field"
+        },
+        "external_field_component_frame": {
+          "minLength": 1,
+          "title": "External Field Component Frame",
+          "type": "string"
+        },
+        "kind": {
+          "const": "static",
+          "title": "Kind",
+          "type": "string"
+        },
+        "quaternion_xyzw": {
+          "anyOf": [
+            {
+              "maxItems": 4,
+              "minItems": 4,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quaternion Xyzw"
+        },
+        "translation_m": {
+          "anyOf": [
+            {
+              "maxItems": 3,
+              "minItems": 3,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Translation M"
+        }
+      },
+      "required": [
+        "kind",
+        "external_field_component_frame"
+      ],
+      "title": "StaticScenario",
+      "type": "object"
+    },
+    "TrajectoryScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "episode_length": {
+          "minimum": 1,
+          "title": "Episode Length",
+          "type": "integer"
+        },
+        "external_field_component_frame": {
+          "minLength": 1,
+          "title": "External Field Component Frame",
+          "type": "string"
+        },
+        "external_field_dataset": {
+          "default": "/external_field",
+          "title": "External Field Dataset",
+          "type": "string"
+        },
+        "kind": {
+          "const": "trajectory",
+          "title": "Kind",
+          "type": "string"
+        },
+        "path": {
+          "format": "path",
+          "title": "Path",
+          "type": "string"
+        },
+        "quaternion_dataset": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "/pose/quaternion_xyzw",
+          "title": "Quaternion Dataset"
+        },
+        "random_start": {
+          "default": false,
+          "title": "Random Start",
+          "type": "boolean"
+        },
+        "translation_dataset": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "/pose/translation_m",
+          "title": "Translation Dataset"
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "external_field_component_frame",
+        "episode_length"
+      ],
+      "title": "TrajectoryScenario",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "environment": {
+      "$ref": "#/$defs/EnvironmentInterfaceConfig"
+    },
+    "forward": {
+      "discriminator": {
+        "mapping": {
+          "finite_element": "#/$defs/FiniteElementForward",
+          "fixed_matrix": "#/$defs/FixedMatrixForward",
+          "geometry": "#/$defs/GeometryForward"
+        },
+        "propertyName": "kind"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/$defs/FixedMatrixForward"
+        },
+        {
+          "$ref": "#/$defs/FiniteElementForward"
+        },
+        {
+          "$ref": "#/$defs/GeometryForward"
+        }
+      ],
+      "title": "Forward"
+    },
+    "hardware": {
+      "$ref": "#/$defs/HardwareConfig"
+    },
+    "name": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+      "title": "Name",
+      "type": "string"
+    },
+    "output_dir": {
+      "format": "path",
+      "title": "Output Dir",
+      "type": "string"
+    },
+    "region": {
+      "discriminator": {
+        "mapping": {
+          "box_cartesian": "#/$defs/BoxRegion",
+          "cylinder_cartesian": "#/$defs/CylinderRegion",
+          "import": "#/$defs/ImportedRegion",
+          "sphere_cartesian": "#/$defs/SphereRegion",
+          "sphere_surface": "#/$defs/SphereSurfaceRegion"
+        },
+        "propertyName": "kind"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/$defs/SphereRegion"
+        },
+        {
+          "$ref": "#/$defs/SphereSurfaceRegion"
+        },
+        {
+          "$ref": "#/$defs/BoxRegion"
+        },
+        {
+          "$ref": "#/$defs/CylinderRegion"
+        },
+        {
+          "$ref": "#/$defs/ImportedRegion"
+        }
+      ],
+      "title": "Region"
+    },
+    "scenario": {
+      "discriminator": {
+        "mapping": {
+          "static": "#/$defs/StaticScenario",
+          "trajectory": "#/$defs/TrajectoryScenario"
+        },
+        "propertyName": "kind"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/$defs/StaticScenario"
+        },
+        {
+          "$ref": "#/$defs/TrajectoryScenario"
+        }
+      ],
+      "title": "Scenario"
+    },
+    "schema_name": {
+      "const": "magshield_env.build_config",
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_name",
+    "schema_version",
+    "name",
+    "region",
+    "forward",
+    "hardware",
+    "scenario",
+    "environment",
+    "output_dir"
+  ],
+  "title": "BuildConfig",
+  "type": "object"
+}
